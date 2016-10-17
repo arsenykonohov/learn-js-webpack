@@ -16,8 +16,10 @@ myBuild.output = {
 
 
 // WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS / WATCHERS /
-//myBuild.watch = "",
-//myBuild.watchOptioins = {};
+myBuild.watch = true,
+myBuild.watchOptioins = {
+//    aggregateTimeout: 500
+};
 
 
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
