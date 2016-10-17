@@ -14,6 +14,7 @@ $ NODE_ENV=public webpack
 
 
 + 1.0. Introduction - complete;
+
 ***
 + 2.1. Easy build | Easy Config   - *complete*;
 + 2.2. Easy build | Module Access - *complete*;
@@ -23,6 +24,7 @@ $ NODE_ENV=public webpack
 + 2.6. Easy build | BABEL (+2.7)  - *complete*;
 + 2.7. Easy build | Resolving     - *complete*;
 + 2.8. Easy build | UglifyJs      - *complete*;
+
 ***
 + 3.1. Multiply scripts | Multiply Entrys - *complete*;
 
