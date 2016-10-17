@@ -1,3 +1,4 @@
+var application =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -49,7 +50,7 @@
 	// common.js module style:
 	let welcome = __webpack_require__(1);
 
-	welcome("home");
+	exports.welcome = welcome("home");
 
 /***/ },
 /* 1 */
