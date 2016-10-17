@@ -8,15 +8,15 @@
 // ES module style:
 import welcome from "../welcome";
 
-let message = welcome("HOME");
+let message = welcome("ABOUT");
 
 // ------------------------------------------------------
 //// ES module style:
-//export default home
+//export default about
 // ------------------------------------------------------
 
 // common.js module style:
 module.exports.message = message;
 
 
-console.log("home module");
+console.log("about module");

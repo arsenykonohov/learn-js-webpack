@@ -1,14 +1,15 @@
 "use strict";
 
-
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // "NODE_ENV=public webpack" - exmple for production;
 // just "webpack" - in developer mode;
+// ---------------------------------------------------------------------------------------------------------------------------------------
 
 const webpack  = require("webpack");
 const myBuild  = {};
 const NODE_ENV = process.env.NODE_ENV || "developer";
 
-// ----------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // plugin configs:
 const compressConfig = {
     warnings:     false,
@@ -18,14 +19,14 @@ const compressConfig = {
 
 
 
-// ----------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // define plugins:
 const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
 const UglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 
 
 
-// ----------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // define loaders:
 const babelLoader = {
     test: /\.js$/,
@@ -39,17 +40,36 @@ const babelLoader = {
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
-myBuild.entry = "./_sourse";
+//myBuild.entry = "./_sourse";
+//
+//myBuild.output = {
+//    path: "./public/script",
+//    filename: "main.js",
+//    library: "app"
+//};
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
+myBuild.context = __dirname + "/_sourse";
+
+myBuild.entry = {
+    home: "./home",
+    about: "./about"
+};
 
 myBuild.output = {
-    path: "./public/script",
-    filename: "main.js",
-    library: "app"
+    path: __dirname + "/public/script",
+    filename: "[name].js",
+    library: "[name]"
 };
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER /
 //myBuild.watch = true,
 myBuild.watch = (NODE_ENV === "developer");
@@ -60,12 +80,14 @@ myBuild.watchOptioins = {
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP /
 //myBuild.devtool = "inline-cheap-source-map";
 myBuild.devtool = NODE_ENV === "developer" ? "cheap-inline-module-source-map" : null;
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
 myBuild.resolve = {
     modulesDirectories: ["node_modules"],
@@ -80,6 +102,7 @@ myBuild.resolveLoader = {
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
 myBuild.plugins = [envDefinition];
 
@@ -89,14 +112,21 @@ if (NODE_ENV === "public") {
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS /
 myBuild.module = {};
 myBuild.module.loaders = [babelLoader];
 
 
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
+
 
 
 
