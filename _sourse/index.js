@@ -1,7 +1,20 @@
 "use strict";
 
+
+let home = require("./home/");
+
+
 // common.js module style:
-let welcome = require("./welcome");
+exports.home = home;
 
-exports.welcome = welcome("home");
 
+
+
+
+
+
+
+
+
+
+console.log("root module");

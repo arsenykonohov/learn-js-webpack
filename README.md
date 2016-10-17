@@ -8,6 +8,6 @@
 + 2.2. Easy build | modules access  - *complete*;
 + 2.3. Easy build | watcher         - *complete*;
 + 2.4. Easy build | Source maps     - *complete*;
-
++ 2.5. Easy build | ENV variable    - *complete*;
 
 
