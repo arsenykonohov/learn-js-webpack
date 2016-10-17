@@ -5,10 +5,27 @@
 // "NODE_ENV=public webpack" - exmple for production;
 // just "webpack" - in developer mode;
 
-const webpack       = require("webpack");
-const myBuild       = {};
-const NODE_ENV      = process.env.NODE_ENV || "developer";
+const webpack  = require("webpack");
+const myBuild  = {};
+const NODE_ENV = process.env.NODE_ENV || "developer";
+
+// ----------------------------------------------------------------------------------------------
+// define plugins:
 const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
+
+
+
+// ----------------------------------------------------------------------------------------------
+// define loaders:
+let babelLoader = {
+    test: /\.js$/,
+    exclude: /(node_modules)/,
+    loader: "babel",
+    query: {
+        presets: ["es2015"],
+        plugins: ['transform-runtime']
+    }
+}
 
 
 
@@ -40,8 +57,16 @@ myBuild.devtool = NODE_ENV === "developer" ? "cheap-inline-module-source-map" : 
 
 
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
-//myBuild.resolve = {};
-//myBuild.resolveLoader = {};
+//myBuild.resolve = {
+//    modulesDirectories: ["node_modules"],
+//    extensions: ["", ".js"]
+//};
+//
+//myBuild.resolveLoader = {
+//    modulesDirectories: ["node_modules"],
+//    moduleTemplates: ["*-loader"],
+//    extensions: ["", ".js"]
+//};
 
 
 
@@ -51,14 +76,13 @@ myBuild.plugins = [envDefinition];
 
 
 // LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS /
-//myBuild.module = {};
-//myBuild.module.loaders: []
+myBuild.module = {};
+myBuild.module.loaders = [babelLoader];
 
 
 
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
-module.exports = myBuild
-
+module.exports = myBuild;
 
 
 

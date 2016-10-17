@@ -1,121 +1,170 @@
 var app =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+    /******/
+    (function (modules) { // webpackBootstrap
+        /******/ // The module cache
+        /******/
+        var installedModules = {};
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+        /******/ // The require function
+        /******/
+        function __webpack_require__(moduleId) {
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+            /******/ // Check if module is in cache
+            /******/
+            if (installedModules[moduleId])
+            /******/
+                return installedModules[moduleId].exports;
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+            /******/ // Create a new module (and put it into the cache)
+            /******/
+            var module = installedModules[moduleId] = {
+                /******/
+                exports: {},
+                /******/
+                id: moduleId,
+                /******/
+                loaded: false
+                    /******/
+            };
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+            /******/ // Execute the module function
+            /******/
+            modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+            /******/ // Flag the module as loaded
+            /******/
+            module.loaded = true;
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+            /******/ // Return the exports of the module
+            /******/
+            return module.exports;
+            /******/
+        }
 
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+        /******/ // expose the modules object (__webpack_modules__)
+        /******/
+        __webpack_require__.m = modules;
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+        /******/ // expose the module cache
+        /******/
+        __webpack_require__.c = installedModules;
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+        /******/ // __webpack_public_path__
+        /******/
+        __webpack_require__.p = "";
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
+        /******/ // Load entry module and return exports
+        /******/
+        return __webpack_require__(0);
+        /******/
+    })
+    /************************************************************************/
+    /******/
+    ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/
+        function (module, exports, __webpack_require__) {
 
-	"use strict";
+            "use strict";
 
+            // ------------------------------------------------------
+            //// common.js module style:
+            //let home = require("./home/");
+            // ------------------------------------------------------
 
-	let home = __webpack_require__(1);
+            // ES module style:
 
+            var _home = __webpack_require__(1);
 
-	// common.js module style:
-	exports.home = home;
+            var _home2 = _interopRequireDefault(_home);
 
+            function _interopRequireDefault(obj) {
+                return obj && obj.__esModule ? obj : {
+                    default: obj
+                };
+            }
 
+            // common.js module style:
+            // root module should return common.js module!
+            exports.home = _home2.default;
 
+            console.log("root module");
 
-
-
-
-
-
-
-
-	console.log("root module");
-
-/***/ },
+            /***/
+        },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/
+        function (module, exports, __webpack_require__) {
 
-	"use strict";
+            "use strict";
 
+            // ------------------------------------------------------
+            //// common.js module style:
+            //let welcome = require("../welcome");
+            // ------------------------------------------------------
 
-	let welcome = __webpack_require__(2);
-	let home    = welcome("HOME");
+            // ES module style:
 
+            Object.defineProperty(exports, "__esModule", {
+                value: true
+            });
 
-	// common.js module style:
-	module.exports = home;
+            var _welcome = __webpack_require__(2);
 
+            var _welcome2 = _interopRequireDefault(_welcome);
 
+            function _interopRequireDefault(obj) {
+                return obj && obj.__esModule ? obj : {
+                    default: obj
+                };
+            }
 
+            var home = (0, _welcome2.default)("HOME");
 
+            // ES module style:
+            exports.default = home;
 
+            // ------------------------------------------------------
+            //// common.js module style:
+            //module.exports = home;
+            // ------------------------------------------------------
 
+            console.log("home module");
 
-
-
-
-	console.log("home module");
-
-/***/ },
+            /***/
+        },
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/
+        function (module, exports, __webpack_require__) {
 
-	"use strict";
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", {
+                value: true
+            });
+            var welcome = function welcome(message) {
+                if (true) {
+                    console.log("Developer MODE");
+                    return "Welcome " + message + "! DEVELOPER!";
+                }
+                console.log("Public MODE");
+                return "Welcome " + message + "!";
+            };
+
+            // ------------------------------------------------------
+            //// common.js module style:
+            //module.exports = welcome;
+            // ------------------------------------------------------
+
+            // ES module style:
+            exports.default = welcome;
 
 
-	let welcome = function (message) {
-	    if (true) {
-	        console.log("Developer MODE");
-	        return `Welcome ${message}! DEVELOPER!`;
-	    }
-	    console.log("Public MODE");
-	    return `Welcome ${message}!`;
-	};
+            console.log("welcome module");
 
-
-	// common.js module style:
-	module.exports = welcome;
-
-
-
-
-	console.log("welcome module");
-
-/***/ }
-/******/ ]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy93ZWJwYWNrL2Jvb3RzdHJhcCBmYjhlMWNjOTI2ZWZiODhmODk0OCIsIndlYnBhY2s6Ly8vLi9fc291cnNlL2luZGV4LmpzIiwid2VicGFjazovLy8uL19zb3Vyc2UvaG9tZS9pbmRleC5qcyIsIndlYnBhY2s6Ly8vLi9fc291cnNlL3dlbGNvbWUvaW5kZXguanMiXSwic291cmNlc0NvbnRlbnQiOlsiIFx0Ly8gVGhlIG1vZHVsZSBjYWNoZVxuIFx0dmFyIGluc3RhbGxlZE1vZHVsZXMgPSB7fTtcblxuIFx0Ly8gVGhlIHJlcXVpcmUgZnVuY3Rpb25cbiBcdGZ1bmN0aW9uIF9fd2VicGFja19yZXF1aXJlX18obW9kdWxlSWQpIHtcblxuIFx0XHQvLyBDaGVjayBpZiBtb2R1bGUgaXMgaW4gY2FjaGVcbiBcdFx0aWYoaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0pXG4gXHRcdFx0cmV0dXJuIGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdLmV4cG9ydHM7XG5cbiBcdFx0Ly8gQ3JlYXRlIGEgbmV3IG1vZHVsZSAoYW5kIHB1dCBpdCBpbnRvIHRoZSBjYWNoZSlcbiBcdFx0dmFyIG1vZHVsZSA9IGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdID0ge1xuIFx0XHRcdGV4cG9ydHM6IHt9LFxuIFx0XHRcdGlkOiBtb2R1bGVJZCxcbiBcdFx0XHRsb2FkZWQ6IGZhbHNlXG4gXHRcdH07XG5cbiBcdFx0Ly8gRXhlY3V0ZSB0aGUgbW9kdWxlIGZ1bmN0aW9uXG4gXHRcdG1vZHVsZXNbbW9kdWxlSWRdLmNhbGwobW9kdWxlLmV4cG9ydHMsIG1vZHVsZSwgbW9kdWxlLmV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pO1xuXG4gXHRcdC8vIEZsYWcgdGhlIG1vZHVsZSBhcyBsb2FkZWRcbiBcdFx0bW9kdWxlLmxvYWRlZCA9IHRydWU7XG5cbiBcdFx0Ly8gUmV0dXJuIHRoZSBleHBvcnRzIG9mIHRoZSBtb2R1bGVcbiBcdFx0cmV0dXJuIG1vZHVsZS5leHBvcnRzO1xuIFx0fVxuXG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlcyBvYmplY3QgKF9fd2VicGFja19tb2R1bGVzX18pXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLm0gPSBtb2R1bGVzO1xuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZSBjYWNoZVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5jID0gaW5zdGFsbGVkTW9kdWxlcztcblxuIFx0Ly8gX193ZWJwYWNrX3B1YmxpY19wYXRoX19cbiBcdF9fd2VicGFja19yZXF1aXJlX18ucCA9IFwiXCI7XG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oMCk7XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiB3ZWJwYWNrL2Jvb3RzdHJhcCBmYjhlMWNjOTI2ZWZiODhmODk0OFxuICoqLyIsIlwidXNlIHN0cmljdFwiO1xyXG5cclxuXHJcbmxldCBob21lID0gcmVxdWlyZShcIi4vaG9tZS9cIik7XHJcblxyXG5cclxuLy8gY29tbW9uLmpzIG1vZHVsZSBzdHlsZTpcclxuZXhwb3J0cy5ob21lID0gaG9tZTtcclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5jb25zb2xlLmxvZyhcInJvb3QgbW9kdWxlXCIpO1xuXG5cbi8qKioqKioqKioqKioqKioqKlxuICoqIFdFQlBBQ0sgRk9PVEVSXG4gKiogLi9fc291cnNlL2luZGV4LmpzXG4gKiogbW9kdWxlIGlkID0gMFxuICoqIG1vZHVsZSBjaHVua3MgPSAwXG4gKiovIiwiXCJ1c2Ugc3RyaWN0XCI7XHJcblxyXG5cclxubGV0IHdlbGNvbWUgPSByZXF1aXJlKFwiLi4vd2VsY29tZVwiKTtcclxubGV0IGhvbWUgICAgPSB3ZWxjb21lKFwiSE9NRVwiKTtcclxuXHJcblxyXG4vLyBjb21tb24uanMgbW9kdWxlIHN0eWxlOlxyXG5tb2R1bGUuZXhwb3J0cyA9IGhvbWU7XHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5jb25zb2xlLmxvZyhcImhvbWUgbW9kdWxlXCIpO1xuXG5cbi8qKioqKioqKioqKioqKioqKlxuICoqIFdFQlBBQ0sgRk9PVEVSXG4gKiogLi9fc291cnNlL2hvbWUvaW5kZXguanNcbiAqKiBtb2R1bGUgaWQgPSAxXG4gKiogbW9kdWxlIGNodW5rcyA9IDBcbiAqKi8iLCJcInVzZSBzdHJpY3RcIjtcclxuXHJcblxyXG5sZXQgd2VsY29tZSA9IGZ1bmN0aW9uIChtZXNzYWdlKSB7XHJcbiAgICBpZiAoTk9ERV9FTlYgPT0gXCJkZXZlbG9wZXJcIikge1xyXG4gICAgICAgIGNvbnNvbGUubG9nKFwiRGV2ZWxvcGVyIE1PREVcIik7XHJcbiAgICAgICAgcmV0dXJuIGBXZWxjb21lICR7bWVzc2FnZX0hIERFVkVMT1BFUiFgO1xyXG4gICAgfVxyXG4gICAgY29uc29sZS5sb2coXCJQdWJsaWMgTU9ERVwiKTtcclxuICAgIHJldHVybiBgV2VsY29tZSAke21lc3NhZ2V9IWA7XHJcbn07XHJcblxyXG5cclxuLy8gY29tbW9uLmpzIG1vZHVsZSBzdHlsZTpcclxubW9kdWxlLmV4cG9ydHMgPSB3ZWxjb21lO1xyXG5cclxuXHJcblxyXG5cclxuY29uc29sZS5sb2coXCJ3ZWxjb21lIG1vZHVsZVwiKTtcblxuXG4vKioqKioqKioqKioqKioqKipcbiAqKiBXRUJQQUNLIEZPT1RFUlxuICoqIC4vX3NvdXJzZS93ZWxjb21lL2luZGV4LmpzXG4gKiogbW9kdWxlIGlkID0gMlxuICoqIG1vZHVsZSBjaHVua3MgPSAwXG4gKiovIl0sIm1hcHBpbmdzIjoiOztBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7OztBQ3RDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7Ozs7QUNuQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7O0FDbkJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OzsiLCJzb3VyY2VSb290IjoiIn0=
+            /***/
+        }
+/******/
+        ]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy93ZWJwYWNrL2Jvb3RzdHJhcCA4ZjYyYjkwMmM0MDdiNGVlODE2YiIsIndlYnBhY2s6Ly8vX3NvdXJzZS9pbmRleC5qcyIsIndlYnBhY2s6Ly8vIiwid2VicGFjazovLy9fc291cnNlL2hvbWUvaW5kZXguanMiLCJ3ZWJwYWNrOi8vL19zb3Vyc2Uvd2VsY29tZS9pbmRleC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIgXHQvLyBUaGUgbW9kdWxlIGNhY2hlXG4gXHR2YXIgaW5zdGFsbGVkTW9kdWxlcyA9IHt9O1xuXG4gXHQvLyBUaGUgcmVxdWlyZSBmdW5jdGlvblxuIFx0ZnVuY3Rpb24gX193ZWJwYWNrX3JlcXVpcmVfXyhtb2R1bGVJZCkge1xuXG4gXHRcdC8vIENoZWNrIGlmIG1vZHVsZSBpcyBpbiBjYWNoZVxuIFx0XHRpZihpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSlcbiBcdFx0XHRyZXR1cm4gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0uZXhwb3J0cztcblxuIFx0XHQvLyBDcmVhdGUgYSBuZXcgbW9kdWxlIChhbmQgcHV0IGl0IGludG8gdGhlIGNhY2hlKVxuIFx0XHR2YXIgbW9kdWxlID0gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0gPSB7XG4gXHRcdFx0ZXhwb3J0czoge30sXG4gXHRcdFx0aWQ6IG1vZHVsZUlkLFxuIFx0XHRcdGxvYWRlZDogZmFsc2VcbiBcdFx0fTtcblxuIFx0XHQvLyBFeGVjdXRlIHRoZSBtb2R1bGUgZnVuY3Rpb25cbiBcdFx0bW9kdWxlc1ttb2R1bGVJZF0uY2FsbChtb2R1bGUuZXhwb3J0cywgbW9kdWxlLCBtb2R1bGUuZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXyk7XG5cbiBcdFx0Ly8gRmxhZyB0aGUgbW9kdWxlIGFzIGxvYWRlZFxuIFx0XHRtb2R1bGUubG9hZGVkID0gdHJ1ZTtcblxuIFx0XHQvLyBSZXR1cm4gdGhlIGV4cG9ydHMgb2YgdGhlIG1vZHVsZVxuIFx0XHRyZXR1cm4gbW9kdWxlLmV4cG9ydHM7XG4gXHR9XG5cblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGVzIG9iamVjdCAoX193ZWJwYWNrX21vZHVsZXNfXylcbiBcdF9fd2VicGFja19yZXF1aXJlX18ubSA9IG1vZHVsZXM7XG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlIGNhY2hlXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLmMgPSBpbnN0YWxsZWRNb2R1bGVzO1xuXG4gXHQvLyBfX3dlYnBhY2tfcHVibGljX3BhdGhfX1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5wID0gXCJcIjtcblxuIFx0Ly8gTG9hZCBlbnRyeSBtb2R1bGUgYW5kIHJldHVybiBleHBvcnRzXG4gXHRyZXR1cm4gX193ZWJwYWNrX3JlcXVpcmVfXygwKTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIHdlYnBhY2svYm9vdHN0cmFwIDhmNjJiOTAyYzQwN2I0ZWU4MTZiXG4gKiovIiwiXCJ1c2Ugc3RyaWN0XCI7XHJcblxyXG5cclxuLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbi8vLy8gY29tbW9uLmpzIG1vZHVsZSBzdHlsZTpcclxuLy9sZXQgaG9tZSA9IHJlcXVpcmUoXCIuL2hvbWUvXCIpO1xyXG4vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuXHJcbi8vIEVTIG1vZHVsZSBzdHlsZTpcclxuaW1wb3J0IGhvbWUgZnJvbSBcIi4vaG9tZVwiO1xyXG5cclxuLy8gY29tbW9uLmpzIG1vZHVsZSBzdHlsZTpcclxuLy8gcm9vdCBtb2R1bGUgc2hvdWxkIHJldHVybiBjb21tb24uanMgbW9kdWxlIVxyXG5leHBvcnRzLmhvbWUgPSBob21lO1xyXG5cclxuXHJcblxyXG5cclxuXHJcbmNvbnNvbGUubG9nKFwicm9vdCBtb2R1bGVcIik7XG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogX3NvdXJzZS9pbmRleC5qc1xuICoqLyIsInVuZGVmaW5lZFxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIFxuICoqLyIsIlwidXNlIHN0cmljdFwiO1xyXG5cclxuLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbi8vLy8gY29tbW9uLmpzIG1vZHVsZSBzdHlsZTpcclxuLy9sZXQgd2VsY29tZSA9IHJlcXVpcmUoXCIuLi93ZWxjb21lXCIpO1xyXG4vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuXHJcbi8vIEVTIG1vZHVsZSBzdHlsZTpcclxuaW1wb3J0IHdlbGNvbWUgZnJvbSBcIi4uL3dlbGNvbWVcIjtcclxuXHJcbmxldCBob21lID0gd2VsY29tZShcIkhPTUVcIik7XHJcblxyXG4vLyBFUyBtb2R1bGUgc3R5bGU6XHJcbmV4cG9ydCBkZWZhdWx0IGhvbWVcclxuXHJcbi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxyXG4vLy8vIGNvbW1vbi5qcyBtb2R1bGUgc3R5bGU6XHJcbi8vbW9kdWxlLmV4cG9ydHMgPSBob21lO1xyXG4vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuY29uc29sZS5sb2coXCJob21lIG1vZHVsZVwiKTtcblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiBfc291cnNlL2hvbWUvaW5kZXguanNcbiAqKi8iLCJcInVzZSBzdHJpY3RcIjtcclxuXHJcbmxldCB3ZWxjb21lID0gZnVuY3Rpb24gKG1lc3NhZ2UpIHtcclxuICAgIGlmIChOT0RFX0VOViA9PSBcImRldmVsb3BlclwiKSB7XHJcbiAgICAgICAgY29uc29sZS5sb2coXCJEZXZlbG9wZXIgTU9ERVwiKTtcclxuICAgICAgICByZXR1cm4gYFdlbGNvbWUgJHttZXNzYWdlfSEgREVWRUxPUEVSIWA7XHJcbiAgICB9XHJcbiAgICBjb25zb2xlLmxvZyhcIlB1YmxpYyBNT0RFXCIpO1xyXG4gICAgcmV0dXJuIGBXZWxjb21lICR7bWVzc2FnZX0hYDtcclxufTtcclxuXHJcbi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxyXG4vLy8vIGNvbW1vbi5qcyBtb2R1bGUgc3R5bGU6XHJcbi8vbW9kdWxlLmV4cG9ydHMgPSB3ZWxjb21lO1xyXG4vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuXHJcbi8vIEVTIG1vZHVsZSBzdHlsZTpcclxuZXhwb3J0IGRlZmF1bHQgd2VsY29tZVxyXG5cclxuY29uc29sZS5sb2coXCJ3ZWxjb21lIG1vZHVsZVwiKTtcblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiBfc291cnNlL3dlbGNvbWUvaW5kZXguanNcbiAqKi8iXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7Ozs7O0FDdENBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBQ0E7Ozs7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUNLQTs7Ozs7O0FDbkJBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7QUFBQTtBQUNBOzs7OztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7Ozs7OztBQ25CQTtBQUNBOzs7O0FBQ0E7QUZDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FFQUE7OzsiLCJzb3VyY2VSb290IjoiIn0=
