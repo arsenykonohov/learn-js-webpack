@@ -1,6 +1,5 @@
 "use strict";
 
-// DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE / DEFINE /
 
 // "NODE_ENV=public webpack" - exmple for production;
 // just "webpack" - in developer mode;
@@ -10,14 +9,25 @@ const myBuild  = {};
 const NODE_ENV = process.env.NODE_ENV || "developer";
 
 // ----------------------------------------------------------------------------------------------
+// plugin configs:
+const compressConfig = {
+    warnings:     false,
+    drop_console: true,
+    unsafe:       false
+}
+
+
+
+// ----------------------------------------------------------------------------------------------
 // define plugins:
 const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
+const UglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 
 
 
 // ----------------------------------------------------------------------------------------------
 // define loaders:
-let babelLoader = {
+const babelLoader = {
     test: /\.js$/,
     exclude: /(node_modules)/,
     loader: "babel",
@@ -57,21 +67,25 @@ myBuild.devtool = NODE_ENV === "developer" ? "cheap-inline-module-source-map" : 
 
 
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
-//myBuild.resolve = {
-//    modulesDirectories: ["node_modules"],
-//    extensions: ["", ".js"]
-//};
-//
-//myBuild.resolveLoader = {
-//    modulesDirectories: ["node_modules"],
-//    moduleTemplates: ["*-loader"],
-//    extensions: ["", ".js"]
-//};
+myBuild.resolve = {
+    modulesDirectories: ["node_modules"],
+    extensions: ["", ".js"]
+};
+
+myBuild.resolveLoader = {
+    modulesDirectories: ["node_modules"],
+    moduleTemplates: ["*-loader", "*"],
+    extensions: ["", ".js"]
+};
 
 
 
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
 myBuild.plugins = [envDefinition];
+
+if (NODE_ENV === "public") {
+    myBuild.plugins.push(UglifyPlugin);
+}
 
 
 
@@ -83,6 +97,8 @@ myBuild.module.loaders = [babelLoader];
 
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
 
 
 

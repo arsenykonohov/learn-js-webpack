@@ -9,7 +9,7 @@ $ webpack
 $ NODE_ENV=public webpack
 ```
 
-*babel config inside package.json*
+*babel config (like .babelrc) inside package.json*
 
 
 + 1.0. Introduction - complete;
@@ -18,7 +18,9 @@ $ NODE_ENV=public webpack
 + 2.3. Easy build | watcher       - *complete*;
 + 2.4. Easy build | Source maps   - *complete*;
 + 2.5. Easy build | ENV variable  - *complete*;
-+ 2.6. Easy build | BABEL.js      - *complete*;
++ 2.6. Easy build | BABEL (+2.7)  - *complete*;
++ 2.7. Easy build | resolving     - *complete*;
++ 2.8. Easy build | UglifyJs      - *complete*;
 
 
 
