@@ -1,0 +1,25 @@
+node_modules
+
+
+
+#===========================================
+# check your git config
+#===========================================
+# git config --list
+# git config user.name arsenykonohov
+# git config user.email arsenykonohov@gmail.com
+# git config --global core.autocrlf
+# git config --global core.safecrlf
+
+
+
+
+
+
+
+
+
+
+
+
+
