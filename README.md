@@ -1,4 +1,4 @@
-# Webpack:
+# Learn Webpack:
 
 [Screencast - I. Kantor](https://www.youtube.com/playlist?list=PLDyvV36pndZHfBThhg4Z0822EEG9VGenn)
 
@@ -12,6 +12,7 @@ $ NODE_ENV=public webpack
 
 *babel config (like .babelrc) inside package.json*
 
+### STATUS:
 
 + 1.0. Introduction - complete;
 
@@ -27,6 +28,7 @@ $ NODE_ENV=public webpack
 
 ***
 + 3.1. Multiply scripts | Multiply Entrys - *complete*;
++ 3.2. Multiply scripts | NoErrorsPlugin  - *complete*;
 
 
 

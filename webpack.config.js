@@ -23,6 +23,7 @@ const compressConfig = {
 // define plugins:
 const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
 const UglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
+const ErrorsPlugin  = new webpack.NoErrorsPlugin();
 
 
 
@@ -58,7 +59,8 @@ myBuild.context = __dirname + "/_sourse";
 
 myBuild.entry = {
     home: "./home",
-    about: "./about"
+    about: "./about",
+    welcome: "./welcome"
 };
 
 myBuild.output = {
@@ -104,7 +106,7 @@ myBuild.resolveLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [envDefinition];
+myBuild.plugins = [ErrorsPlugin, envDefinition];
 
 if (NODE_ENV === "public") {
     myBuild.plugins.push(UglifyPlugin);
