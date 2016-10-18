@@ -2,7 +2,7 @@
 
 [Screencast - I. Kantor](https://www.youtube.com/playlist?list=PLDyvV36pndZHfBThhg4Z0822EEG9VGenn)
 
-
+build:
 ```
 $ npm i
 $ webpack
@@ -10,7 +10,9 @@ $ NODE_ENV=public webpack
 ```
 
 
-*babel config (like .babelrc) inside package.json*
+
+babel config (like `.babelrc`) inside `package.json`
+
 
 ### STATUS:
 
@@ -27,8 +29,9 @@ $ NODE_ENV=public webpack
 + 2.8. Easy build | UglifyJs      - *complete*;
 
 ***
-+ 3.1. Multiply scripts | Multiply Entrys - *complete*;
-+ 3.2. Multiply scripts | NoErrorsPlugin  - *complete*;
++ 3.1. Multiple scripts | Multiple Entries   - *complete*;
++ 3.2. Multiple scripts | NoErrorsPlugin     - *complete*;
++ 3.3. Multiple scripts | CommonsChunkPlugin - *complete*;
 
 
 

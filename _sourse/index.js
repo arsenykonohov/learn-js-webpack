@@ -7,11 +7,13 @@
 // ------------------------------------------------------
 
 // ES module style:
-import home from "./home";
+import home  from "./home";
+import about from "./about";
 
 // common.js module style:
 // root module should return common.js module!
-exports.home = home;
+exports.home  = home;
+exports.about = about;
 
 
 

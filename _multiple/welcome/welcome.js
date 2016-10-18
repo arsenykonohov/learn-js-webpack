@@ -9,12 +9,12 @@ let welcome = function (message) {
     return `Welcome ${message}!`;
 };
 
+// ------------------------------------------------------
 // common.js module style:
 //module.exports = welcome;
 
 // ------------------------------------------------------
-// ES module style:
+//// ES module style:
 export default welcome
-// ------------------------------------------------------
 
 console.log("welcome module");

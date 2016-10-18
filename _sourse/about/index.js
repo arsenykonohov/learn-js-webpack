@@ -10,13 +10,13 @@ import welcome from "../welcome";
 
 let message = welcome("ABOUT");
 
-// ------------------------------------------------------
-//// ES module style:
-//export default about
-// ------------------------------------------------------
+// ES module style:
+export default message
 
+// ------------------------------------------------------
 // common.js module style:
-module.exports.message = message;
+//module.exports.message = message;
+// ------------------------------------------------------
 
 
 console.log("about module");

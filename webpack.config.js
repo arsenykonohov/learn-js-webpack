@@ -15,15 +15,20 @@ const compressConfig = {
     warnings:     false,
     drop_console: true,
     unsafe:       false
-}
+};
 
-
+const chunkConfig = {
+    name: "shared",
+};
+//    filename: "shared.js",
+//    minChunks: Infinity
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define plugins:
 const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
-const UglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
-const ErrorsPlugin  = new webpack.NoErrorsPlugin();
+const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
+const errorsPlugin  = new webpack.NoErrorsPlugin();
+const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
 
 
 
@@ -34,10 +39,10 @@ const babelLoader = {
     exclude: /(node_modules)/,
     loader: "babel",
     query: {
-        presets: ["es2015"],
-        plugins: ['transform-runtime']
+//        plugins: ['transform-runtime'],
+        presets: ["es2015"]
     }
-}
+};
 
 
 
@@ -55,16 +60,15 @@ const babelLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
-myBuild.context = __dirname + "/_sourse";
+myBuild.context = __dirname + "/_multiple";
 
 myBuild.entry = {
-    home: "./home",
-    about: "./about",
-    welcome: "./welcome"
+    home: "./home/home",
+    about: "./about/about"
 };
 
 myBuild.output = {
-    path: __dirname + "/public/script",
+    path: __dirname + "/public/multiple_scripts",
     filename: "[name].js",
     library: "[name]"
 };
@@ -106,10 +110,10 @@ myBuild.resolveLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [ErrorsPlugin, envDefinition];
+myBuild.plugins = [envDefinition, commonsChunk, errorsPlugin];
 
 if (NODE_ENV === "public") {
-    myBuild.plugins.push(UglifyPlugin);
+    myBuild.plugins.push(uglifyPlugin);
 }
 
 
@@ -124,6 +128,8 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
 
 
 
