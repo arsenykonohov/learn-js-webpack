@@ -6,6 +6,7 @@
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
 const webpack  = require("webpack");
+const path     = require("path");
 const myBuild  = {};
 const NODE_ENV = process.env.NODE_ENV || "developer";
 
@@ -17,6 +18,7 @@ const compressConfig = {
     unsafe:       false
 };
 
+//    minChunks: Infinity,
 const chunkConfig = {
     name: "shared",
     filename: "shared.js"
@@ -59,11 +61,14 @@ const babelLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
-myBuild.context = __dirname + "/_sourse/_multiple";
+// https://webpack.github.io/docs/troubleshooting.html#windows-paths
+// https://webpack.github.io/docs/configuration.html#resolve-root
+myBuild.context = path.resolve(__dirname + "/_sourse/_multiple");
 
 myBuild.entry = {
     home: "./home",
-    about: "./about"
+    about: "./about",
+    shared: "./shared"
 };
 
 myBuild.output = {
@@ -76,11 +81,10 @@ myBuild.output = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER /
-//myBuild.watch = true,
 myBuild.watch = (NODE_ENV === "developer");
 
 myBuild.watchOptioins = {
-//    aggregateTimeout: 500
+    aggregateTimeout: 300
 };
 
 
@@ -127,6 +131,12 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
+
+
 
 
 

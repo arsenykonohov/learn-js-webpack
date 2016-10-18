@@ -2,10 +2,10 @@
 
 let welcome = function (message) {
     if (NODE_ENV == "developer") {
-        console.log("Developer MODE");
+//        console.log("Developer MODE");
         return `Welcome ${message}! DEVELOPER!`;
     }
-    console.log("Public MODE");
+//    console.log("Public MODE");
     return `Welcome ${message}!`;
 };
 
@@ -17,4 +17,4 @@ let welcome = function (message) {
 //// ES module style:
 export default welcome
 
-console.log("welcome module");
+//console.log("welcome module");

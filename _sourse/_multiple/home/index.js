@@ -16,7 +16,8 @@ let message = welcome("HOME");
 // ------------------------------------------------------
 
 // common.js module style:
+module.exports.name = "home";
 module.exports.message = message;
 
 
-console.log("home module");
+//console.log("home module");
