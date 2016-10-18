@@ -55,12 +55,17 @@ babel config (like `.babelrc`) inside `package.json`
 + 2.8. Easy build | UglifyJs      - *complete*;
 
 ***
-+ 3.1. Multiple scripts | Multiple Entries             - *complete*;
-+ 3.2. Multiple scripts | NoErrorsPlugin               - *complete*;
-+ 3.3. Multiple scripts | CommonsChunkPlugin           - *complete*;
-+ 3.4. Multiple scripts | Build Info                   - *complete*;
-+ 3.5. Multiple scripts | Adjust CommonsChunkPlugin    - *just i realized*;
-+ 3.6. Multiple scripts | shared.js as moule and entry - *complete*;
++ 3.1. Multiple scripts | Multiple Entries              - *complete*;
++ 3.2. Multiple scripts | NoErrorsPlugin                - *complete*;
++ 3.3. Multiple scripts | CommonsChunkPlugin            - *complete*;
++ 3.4. Multiple scripts | Build Info                    - *complete*;
++ 3.5. Multiple scripts | Adjust CommonsChunkPlugin     - *just i realized*;
++ 3.6. Multiple scripts | shared.js as moule and entry  - *complete*;
++ 3.7. Multiple scripts | Multi-Compilation and Summary - *just i realized*;
+
+***
++ 4.1. Advanced **require** | Dynamic require - *get started*;
+
 
 
 
