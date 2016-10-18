@@ -5,7 +5,6 @@
 
 
 
-
 ***
 **Build:**
 ```
@@ -27,14 +26,12 @@ babel config (like `.babelrc`) inside `package.json`
 
 
 
-
 ***
 ### HINTS:
 
 [troubleshooting for watch and windows paths](https://webpack.github.io/docs/troubleshooting.html#windows-paths)
 
 [following for resource above](https://webpack.github.io/docs/configuration.html#resolve-root)
-
 
 
 
@@ -65,6 +62,7 @@ babel config (like `.babelrc`) inside `package.json`
 
 ***
 + 4.1. Advanced **require** | Dynamic require - *get started*;
+
 
 
 

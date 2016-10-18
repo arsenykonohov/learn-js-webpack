@@ -17,8 +17,6 @@ const compressConfig = {
     drop_console: true,
     unsafe:       false
 };
-
-//    minChunks: Infinity,
 const chunkConfig = {
     name: "shared",
     filename: "shared.js"
@@ -30,8 +28,6 @@ const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_EN
 const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 const errorsPlugin  = new webpack.NoErrorsPlugin();
 const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
-
-
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define loaders:
@@ -56,8 +52,6 @@ const babelLoader = {
 //    filename: "main.js",
 //    library: "app"
 //};
-
-
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
