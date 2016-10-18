@@ -19,9 +19,8 @@ const compressConfig = {
 
 const chunkConfig = {
     name: "shared",
+    filename: "shared.js"
 };
-//    filename: "shared.js",
-//    minChunks: Infinity
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define plugins:
@@ -39,8 +38,8 @@ const babelLoader = {
     exclude: /(node_modules)/,
     loader: "babel",
     query: {
-//        plugins: ['transform-runtime'],
-        presets: ["es2015"]
+        plugins: ['transform-runtime'],
+        presets: ["es2015", "stage-0"]
     }
 };
 
@@ -48,7 +47,7 @@ const babelLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
-//myBuild.entry = "./_sourse";
+//myBuild.entry = "./_sourse/_unidirection";
 //
 //myBuild.output = {
 //    path: "./public/script",
@@ -60,11 +59,11 @@ const babelLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
-myBuild.context = __dirname + "/_multiple";
+myBuild.context = __dirname + "/_sourse/_multiple";
 
 myBuild.entry = {
-    home: "./home/home",
-    about: "./about/about"
+    home: "./home",
+    about: "./about"
 };
 
 myBuild.output = {
@@ -128,13 +127,6 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
-
-
-
-
-
-
 
 
 

@@ -1,7 +1,8 @@
-# Learn Webpack:
+# Learn Webpack
 
 [Screencast - I. Kantor](https://www.youtube.com/playlist?list=PLDyvV36pndZHfBThhg4Z0822EEG9VGenn)
 
+***
 build:
 ```
 $ npm i
@@ -9,8 +10,16 @@ $ webpack
 $ NODE_ENV=public webpack
 ```
 
+***
+build info:
+```
+$ webpack --display-modules -v
+$ webpack --json --profile > stats.json
+```
+[upload stats.json here](https://webpack.github.io/analyse/)
 
 
+***
 babel config (like `.babelrc`) inside `package.json`
 
 
@@ -32,6 +41,7 @@ babel config (like `.babelrc`) inside `package.json`
 + 3.1. Multiple scripts | Multiple Entries   - *complete*;
 + 3.2. Multiple scripts | NoErrorsPlugin     - *complete*;
 + 3.3. Multiple scripts | CommonsChunkPlugin - *complete*;
++ 3.4. Multiple scripts | Build Info         - *complete*;
 
 
 

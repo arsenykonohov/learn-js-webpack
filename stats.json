@@ -1,0 +1,300 @@
+{
+    "errors": [],
+    "warnings": [],
+    "version": "1.13.2",
+    "hash": "aa2179b566ee4efa5c00",
+    "time": 1010,
+    "publicPath": "",
+    "assetsByChunkName": {
+        "about": "about.js",
+        "home": "home.js",
+        "shared": "shared.js"
+    },
+    "assets": [
+        {
+            "name": "about.js",
+            "size": 2170,
+            "chunks": [0],
+            "chunkNames": ["about"],
+            "emitted": true
+    },
+        {
+            "name": "home.js",
+            "size": 2158,
+            "chunks": [1],
+            "chunkNames": ["home"],
+            "emitted": true
+    },
+        {
+            "name": "shared.js",
+            "size": 10499,
+            "chunks": [2],
+            "chunkNames": ["shared"],
+            "emitted": true
+    }
+  ],
+    "chunks": [
+        {
+            "id": 0,
+            "rendered": true,
+            "initial": true,
+            "entry": false,
+            "extraAsync": false,
+            "size": 708,
+            "names": ["about"],
+            "files": ["about.js"],
+            "hash": "4d152f5d5bc419acbbf5",
+            "parents": [2],
+            "modules": [
+                {
+                    "id": 0,
+                    "identifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+                    "name": "./about/index.js",
+                    "index": 0,
+                    "index2": 1,
+                    "size": 708,
+                    "cacheable": true,
+                    "built": true,
+                    "optional": false,
+                    "prefetched": false,
+                    "chunks": [0],
+                    "assets": [],
+                    "issuer": null,
+                    "profile": {
+                        "factory": 567,
+                        "building": 302
+                    },
+                    "failed": false,
+                    "errors": 0,
+                    "warnings": 0,
+                    "reasons": [],
+                    "source": "\"use strict\";\n\n// ------------------------------------------------------\n//// common.js module style:\n//let welcome = require(\"../welcome\");\n// ------------------------------------------------------\n\n// ES module style:\n\nvar _welcome = require(\"../welcome\");\n\nvar _welcome2 = _interopRequireDefault(_welcome);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar message = (0, _welcome2.default)(\"ABOUT\");\n\n// ------------------------------------------------------\n//// ES module style:\n//export default about\n// ------------------------------------------------------\n\n// common.js module style:\nmodule.exports.message = message;\n\nconsole.log(\"about module\");"
+        }
+      ],
+            "filteredModules": 0,
+            "origins": [
+                {
+                    "moduleId": 0,
+                    "module": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+                    "moduleIdentifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+                    "moduleName": "./about/index.js",
+                    "loc": "",
+                    "name": "about",
+                    "reasons": []
+        }
+      ]
+    },
+        {
+            "id": 1,
+            "rendered": true,
+            "initial": true,
+            "entry": false,
+            "extraAsync": false,
+            "size": 705,
+            "names": ["home"],
+            "files": ["home.js"],
+            "hash": "baae79eb8ce3c531dfb0",
+            "parents": [2],
+            "modules": [
+                {
+                    "id": 0,
+                    "identifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\home\\index.js",
+                    "name": "./home/index.js",
+                    "index": 2,
+                    "index2": 2,
+                    "size": 705,
+                    "cacheable": true,
+                    "built": true,
+                    "optional": false,
+                    "prefetched": false,
+                    "chunks": [1],
+                    "assets": [],
+                    "issuer": null,
+                    "profile": {
+                        "factory": 23,
+                        "building": 891,
+                        "dependencies": 6
+                    },
+                    "failed": false,
+                    "errors": 0,
+                    "warnings": 0,
+                    "reasons": [],
+                    "source": "\"use strict\";\n\n// ------------------------------------------------------\n//// common.js module style:\n//let welcome = require(\"../welcome\");\n// ------------------------------------------------------\n\n// ES module style:\n\nvar _welcome = require(\"../welcome\");\n\nvar _welcome2 = _interopRequireDefault(_welcome);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar message = (0, _welcome2.default)(\"HOME\");\n\n// ------------------------------------------------------\n//// ES module style:\n//export default home\n// ------------------------------------------------------\n\n// common.js module style:\nmodule.exports.message = message;\n\nconsole.log(\"home module\");"
+        }
+      ],
+            "filteredModules": 0,
+            "origins": [
+                {
+                    "moduleId": 0,
+                    "module": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\home\\index.js",
+                    "moduleIdentifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\home\\index.js",
+                    "moduleName": "./home/index.js",
+                    "loc": "",
+                    "name": "home",
+                    "reasons": []
+        }
+      ]
+    },
+        {
+            "id": 2,
+            "rendered": true,
+            "initial": true,
+            "entry": true,
+            "extraAsync": false,
+            "size": 586,
+            "names": ["shared"],
+            "files": ["shared.js"],
+            "hash": "7ee0ff1f2caf5ba60d5d",
+            "parents": [],
+            "modules": [
+                {
+                    "id": 1,
+                    "identifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\welcome\\index.js",
+                    "name": "./welcome/index.js",
+                    "index": 1,
+                    "index2": 0,
+                    "size": 586,
+                    "cacheable": true,
+                    "built": true,
+                    "optional": false,
+                    "prefetched": false,
+                    "chunks": [2],
+                    "assets": [],
+                    "issuer": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+                    "profile": {
+                        "factory": 44,
+                        "building": 52
+                    },
+                    "failed": false,
+                    "errors": 0,
+                    "warnings": 0,
+                    "reasons": [
+                        {
+                            "moduleId": 0,
+                            "moduleIdentifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+                            "module": "./about/index.js",
+                            "moduleName": "./about/index.js",
+                            "type": "cjs require",
+                            "userRequest": "../welcome",
+                            "loc": "10:15-36"
+            },
+                        {
+                            "moduleId": 0,
+                            "moduleIdentifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\home\\index.js",
+                            "module": "./home/index.js",
+                            "moduleName": "./home/index.js",
+                            "type": "cjs require",
+                            "userRequest": "../welcome",
+                            "loc": "10:15-36"
+            }
+          ],
+                    "source": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar welcome = function welcome(message) {\n    if (NODE_ENV == \"developer\") {\n        console.log(\"Developer MODE\");\n        return \"Welcome \" + message + \"! DEVELOPER!\";\n    }\n    console.log(\"Public MODE\");\n    return \"Welcome \" + message + \"!\";\n};\n\n// ------------------------------------------------------\n// common.js module style:\n//module.exports = welcome;\n\n// ------------------------------------------------------\n//// ES module style:\nexports.default = welcome;\n\n\nconsole.log(\"welcome module\");"
+        }
+      ],
+            "filteredModules": 0,
+            "origins": []
+    }
+  ],
+    "modules": [
+        {
+            "id": 0,
+            "identifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+            "name": "./about/index.js",
+            "index": 0,
+            "index2": 1,
+            "size": 708,
+            "cacheable": true,
+            "built": true,
+            "optional": false,
+            "prefetched": false,
+            "chunks": [
+        0
+      ],
+            "assets": [],
+            "issuer": null,
+            "profile": {
+                "factory": 567,
+                "building": 302
+            },
+            "failed": false,
+            "errors": 0,
+            "warnings": 0,
+            "reasons": [],
+            "source": "\"use strict\";\n\n// ------------------------------------------------------\n//// common.js module style:\n//let welcome = require(\"../welcome\");\n// ------------------------------------------------------\n\n// ES module style:\n\nvar _welcome = require(\"../welcome\");\n\nvar _welcome2 = _interopRequireDefault(_welcome);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar message = (0, _welcome2.default)(\"ABOUT\");\n\n// ------------------------------------------------------\n//// ES module style:\n//export default about\n// ------------------------------------------------------\n\n// common.js module style:\nmodule.exports.message = message;\n\nconsole.log(\"about module\");"
+    },
+        {
+            "id": 0,
+            "identifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\home\\index.js",
+            "name": "./home/index.js",
+            "index": 2,
+            "index2": 2,
+            "size": 705,
+            "cacheable": true,
+            "built": true,
+            "optional": false,
+            "prefetched": false,
+            "chunks": [
+        1
+      ],
+            "assets": [],
+            "issuer": null,
+            "profile": {
+                "factory": 23,
+                "building": 891,
+                "dependencies": 6
+            },
+            "failed": false,
+            "errors": 0,
+            "warnings": 0,
+            "reasons": [],
+            "source": "\"use strict\";\n\n// ------------------------------------------------------\n//// common.js module style:\n//let welcome = require(\"../welcome\");\n// ------------------------------------------------------\n\n// ES module style:\n\nvar _welcome = require(\"../welcome\");\n\nvar _welcome2 = _interopRequireDefault(_welcome);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar message = (0, _welcome2.default)(\"HOME\");\n\n// ------------------------------------------------------\n//// ES module style:\n//export default home\n// ------------------------------------------------------\n\n// common.js module style:\nmodule.exports.message = message;\n\nconsole.log(\"home module\");"
+    },
+        {
+            "id": 1,
+            "identifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\welcome\\index.js",
+            "name": "./welcome/index.js",
+            "index": 1,
+            "index2": 0,
+            "size": 586,
+            "cacheable": true,
+            "built": true,
+            "optional": false,
+            "prefetched": false,
+            "chunks": [
+        2
+      ],
+            "assets": [],
+            "issuer": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+            "profile": {
+                "factory": 44,
+                "building": 52
+            },
+            "failed": false,
+            "errors": 0,
+            "warnings": 0,
+            "reasons": [
+                {
+                    "moduleId": 0,
+                    "moduleIdentifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\about\\index.js",
+                    "module": "./about/index.js",
+                    "moduleName": "./about/index.js",
+                    "type": "cjs require",
+                    "userRequest": "../welcome",
+                    "loc": "10:15-36"
+        },
+                {
+                    "moduleId": 0,
+                    "moduleIdentifier": "D:\\_DEVELOPER\\learn-js-webpack\\node_modules\\babel-loader\\index.js?{\"plugins\":[\"transform-runtime\"],\"presets\":[\"es2015\",\"stage-0\"]}!D:\\_DEVELOPER\\learn-js-webpack/_sourse/_multiple\\home\\index.js",
+                    "module": "./home/index.js",
+                    "moduleName": "./home/index.js",
+                    "type": "cjs require",
+                    "userRequest": "../welcome",
+                    "loc": "10:15-36"
+        }
+      ],
+            "source": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar welcome = function welcome(message) {\n    if (NODE_ENV == \"developer\") {\n        console.log(\"Developer MODE\");\n        return \"Welcome \" + message + \"! DEVELOPER!\";\n    }\n    console.log(\"Public MODE\");\n    return \"Welcome \" + message + \"!\";\n};\n\n// ------------------------------------------------------\n// common.js module style:\n//module.exports = welcome;\n\n// ------------------------------------------------------\n//// ES module style:\nexports.default = welcome;\n\n\nconsole.log(\"welcome module\");"
+    }
+  ],
+    "filteredModules": 0,
+    "children": []
+}
