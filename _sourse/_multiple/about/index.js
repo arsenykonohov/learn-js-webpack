@@ -6,9 +6,9 @@
 // ------------------------------------------------------
 
 // ES module style:
-//import welcome from "../welcome";
+import welcome from "../welcome";
 
-//let message = welcome("ABOUT");
+let message = welcome("ABOUT");
 
 // ------------------------------------------------------
 //// ES module style:
@@ -17,7 +17,7 @@
 
 // common.js module style:
 module.exports.name = "about";
-//module.exports.message = message;
+module.exports.message = message;
 
 
 //console.log("about module");
