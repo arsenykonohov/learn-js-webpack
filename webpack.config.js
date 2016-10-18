@@ -68,7 +68,7 @@ myBuild.context = path.resolve(__dirname + "/_sourse/_multiple");
 myBuild.entry = {
     home: "./home",
     about: "./about",
-    shared: "./shared"
+    shared: ["./shared", "./welcome"]
 };
 
 myBuild.output = {
