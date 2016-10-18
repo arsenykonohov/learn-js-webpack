@@ -1,10 +1,11 @@
 "use strict";
 
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // "NODE_ENV=public webpack" - exmple for production;
 // just "webpack" - in developer mode;
-// ---------------------------------------------------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------------------------------------------------
 const webpack  = require("webpack");
 const path     = require("path");
 const myBuild  = {};
@@ -43,33 +44,45 @@ const babelLoader = {
 
 
 
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
-//myBuild.entry = "./_sourse/_unidirection";
-//
+//myBuild.entry = "./_sourse/2_unidirection";
 //myBuild.output = {
-//    path: "./public/script",
+//    path: "./public/2_unidirection",
 //    filename: "main.js",
 //    library: "app"
 //};
 
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
-// https://webpack.github.io/docs/troubleshooting.html#windows-paths
-// https://webpack.github.io/docs/configuration.html#resolve-root
-myBuild.context = path.resolve(__dirname + "/_sourse/_multiple");
-
+myBuild.context = path.resolve(__dirname + "/_sourse/3_multiple");
 myBuild.entry = {
     home: "./home",
     about: "./about",
     shared: ["./welcome", "./shared"]
 };
-
 myBuild.output = {
-    path: __dirname + "/public/multiple_scripts",
+    path: __dirname + "/public/3_multiple",
     filename: "[name].js",
     library: "[name]"
 };
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT /
+//myBuild.context = path.resolve(__dirname + "/_sourse/4_dynamic");
+//myBuild.entry = {
+//    home: "./app"
+//};
+//myBuild.output = {
+//    path: __dirname + "/public/4_dynamic",
+//    filename: "[name].js",
+//    library: "[name]"
+//};
+
+
 
 
 
@@ -82,12 +95,10 @@ myBuild.watchOptioins = {
 };
 
 
-
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP /
 //myBuild.devtool = "inline-cheap-source-map";
 myBuild.devtool = NODE_ENV === "developer" ? "cheap-inline-module-source-map" : null;
-
 
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -105,6 +116,8 @@ myBuild.resolveLoader = {
 
 
 
+
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
 myBuild.plugins = [envDefinition, commonsChunk, errorsPlugin];
@@ -113,8 +126,6 @@ if (NODE_ENV === "public") {
     myBuild.plugins.push(uglifyPlugin);
 }
 
-
-
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS /
 myBuild.module = {};
@@ -122,9 +133,14 @@ myBuild.module.loaders = [babelLoader];
 
 
 
+
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
 
 
 

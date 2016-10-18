@@ -6,18 +6,18 @@
 // ------------------------------------------------------
 
 // ES module style:
-import welcome from "../welcome";
+//import welcome from "../welcome";
 
-let message = welcome("HOME");
+//let message = welcome("ABOUT");
 
 // ------------------------------------------------------
 //// ES module style:
-//export default home
+//export default message
 // ------------------------------------------------------
 
 // common.js module style:
-module.exports.name = "home";
-module.exports.message = message;
+module.exports.name = "about";
+//module.exports.message = message;
 
 
-//console.log("home module");
+//console.log("about module");
