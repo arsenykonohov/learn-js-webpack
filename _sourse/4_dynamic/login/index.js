@@ -2,9 +2,20 @@
 
 
 let loginApp = function (userName) {
-    return `hi ${userName}! This is login page!`;
+    console.log(`Hi ${userName}! This is login page!`);
+    return `Hi ${userName}! This is login page!`;
 };
 
-console.log("login module");
+
+
+//console.log("loginApp:", loginApp);
+
+
+
+
+
+
+
 
 export default loginApp;
+//module.exports = loginApp;

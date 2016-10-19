@@ -78,8 +78,9 @@ myBuild.entry = {
 };
 myBuild.output = {
     path: __dirname + "/public/scripts/4_dynamic",
+    publicPath: "/scripts/4_dynamic/",
     filename: "[name].js",
-    library: "[name]"
+    library: "[name]",
 };
 
 
@@ -133,11 +134,11 @@ myBuild.module.loaders = [babelLoader];
 
 
 
+
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
-
 
 
 
