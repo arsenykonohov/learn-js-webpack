@@ -14,6 +14,7 @@ login.addEventListener("click", () => {
 });
 
 
+console.log("app module");
 
 
-
+//module.exports = {};
