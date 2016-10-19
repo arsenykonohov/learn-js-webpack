@@ -64,6 +64,7 @@ babel config (like `.babelrc`) inside `package.json`
 + 4.1. Advanced require | Dynamic require     - *complete*;
 + 4.2. Advanced require | Merge Fragments     - *complete*;
 + 4.3. Advanced require | require(expression) - *complete*;
++ 4.4. Advanced require | require.context     - *complete*;
 
 
 

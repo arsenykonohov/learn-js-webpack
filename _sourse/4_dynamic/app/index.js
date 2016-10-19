@@ -32,9 +32,21 @@ logOutButton.addEventListener("click", () => {
 
 
 // =======================================================================================================
-let moduleName = location.pathname.slice(1);
-let route = require("../routes/" + moduleName + "/index.js");
-let x = route();
+//let moduleName = location.pathname.slice(1);
+// ---------------------------------------------------------------
+let moduleName = "home/index.js";
+
+// --------------------------------------------------------------- 4.3 - success
+let route = require("../routes/" + moduleName);
+
+//// --------------------------------------------------------------- 4.4 - failure
+//let cntxt = require.context("../routes/", false)
+//let route = cntxt("./" + moduleName);
+
+// ---------------------------------------------------------------
+mainContainer.innerHTML = route("home");
+
+
 
 
 // -------------------------------------------------------------------
@@ -52,8 +64,5 @@ let handler = function (e) {
 for (let i = 0; i < routButtons.length; i++) {
     routButtons[i].addEventListener("click", handler);
 }
-
-
-
 
 
