@@ -1,20 +1,39 @@
 "use strict";
 
 
-let login = document.getElementById("js_login");
+let loginButton   = document.getElementById("js_login");
+let logOutButton  = document.getElementById("js_logout");
+let mainContainer = document.getElementById("main");
+let pointName = "";
 
-login.addEventListener("click", () => {
+loginButton.addEventListener("click", () => {
+    // ---------------------------------------------------------------------------------------------
     require.ensure([], function(require) {
         let loginModule = require("../login");
-        let name = prompt("What is your name?", "User");
+        pointName = prompt("What is your name?", "User");
         
-        loginModule(name);          // when use "module.exports" in "../login" module
-        //loginModule.default(name);  // when use "export default" in "../login" module
-    });
+        let result = loginModule(pointName);          // when use "module.exports" in "../login" module
+        //let result = loginModule.default(name);  // when use "export default" in "../login" module
+        
+        mainContainer.innerHTML = result;
+    }, "auth");
 });
 
 
-console.log("app module");
+logOutButton.addEventListener("click", () => {
+    // ---------------------------------------------------------------------------------------------
+    require.ensure([], function(require) {
+        let logOutModule = require("../logout");
+        
+        let result = logOutModule(pointName);          // when use "module.exports" in "../login" module
+        //let result = loginModule.default(name);  // when use "export default" in "../login" module
+        
+        mainContainer.innerHTML = result;
+    }, "auth");
+});
+
+
+
 
 
 

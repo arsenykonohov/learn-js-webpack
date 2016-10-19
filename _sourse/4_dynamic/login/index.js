@@ -2,16 +2,15 @@
 
 
 let loginApp = function (userName) {
-    console.log(`Hi ${userName}! This is login page!`);
-    return `Hi ${userName}! This is login page!`;
+    return (`
+        <div class="center">
+            <h2>Welcome! <hr/> ${userName}</h2>
+            <p>It's login page.</p>
+            <hr />
+            <p>This is template from loaded on demand module.</p>
+        </div>
+    `);
 };
-
-
-
-//console.log("loginApp:", loginApp);
-
-
-
 
 
 

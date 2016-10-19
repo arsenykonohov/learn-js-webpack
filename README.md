@@ -61,7 +61,8 @@ babel config (like `.babelrc`) inside `package.json`
 + 3.7. Multiple scripts | Multi-Compilation and Summary - *just i realized*;
 
 ***
-+ 4.1. Advanced require | Dynamic require - *get started*;
++ 4.1. Advanced require | Dynamic require - *complete*;
++ 4.2. Advanced require | Merge Fragments - *complete*;
 
 
 

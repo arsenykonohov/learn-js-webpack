@@ -28,6 +28,8 @@ const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_EN
 const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 const errorsPlugin  = new webpack.NoErrorsPlugin();
 const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
+// LimitChunkCountPlugin, MinChunkSizePlugin, AggressiveMergingPlugin
+
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define loaders:
