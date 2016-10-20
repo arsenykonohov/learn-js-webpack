@@ -63,7 +63,10 @@ let handler = function (e) {
         let handler;
         
         try {
-            handler = require("bundle!./routes/" + text + "/index.js");
+            //handler = require("bundle!./routes/" + text + "/index.js"); // #2
+            
+            let context = require.context("bundle!./routes/", true, /^\.\//);
+            handler = context("./" + text + "/index.js");
         } catch (e) {
             console.log("failure!");
             console.log(e);
