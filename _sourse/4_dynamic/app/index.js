@@ -48,8 +48,10 @@ logOutButton.addEventListener("click", () => {
 
 // =======================================================================================================
 let routButtons = document.getElementsByClassName("js_rout");
+
 let handler = function (e) {
     let text = e.target.innerHTML.replace(/\s+/g, "");
+    
     require.ensure([], function (require) {
         //let routes = require("./routes/" + text + "/index.js");
         
@@ -68,8 +70,9 @@ let handler = function (e) {
             let context = require.context("bundle!./routes/", true, /^\.\//);
             handler = context("./" + text + "/index.js");
         } catch (e) {
-            console.log("failure!");
+            console.log("-------------------------------------------------");
             console.log(e);
+            console.log("-------------------------------------------------");
         }
         
         // async call:
@@ -86,6 +89,7 @@ let handler = function (e) {
         //mainContainer.innerHTML = result;
     });
 };
+
 for (let i = 0; i < routButtons.length; i++) {
     routButtons[i].addEventListener("click", handler);
 }
