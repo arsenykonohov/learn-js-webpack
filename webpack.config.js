@@ -79,7 +79,7 @@ myBuild.entry = {
     app: "./app"
 };
 myBuild.output = {
-    path: __dirname + "/public/scripts/4_dynamic",
+    path: path.resolve(__dirname + "/public/scripts/4_dynamic"),
     publicPath: "/scripts/4_dynamic/",
     filename: "[name].js",
     library: "[name]",

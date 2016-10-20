@@ -1,7 +1,7 @@
 "use strict";
 
 
-let home = function (routerParam) {
+module.exports = function (routerParam) {
     return (`
         <div class="center">
             <p>Simple routing</p>
@@ -12,9 +12,3 @@ let home = function (routerParam) {
         </div>
     `);
 };
-
-
-
-
-//export default home;
-module.exports = home;
