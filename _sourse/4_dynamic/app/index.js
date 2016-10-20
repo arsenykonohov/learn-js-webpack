@@ -54,11 +54,28 @@ let handler = function (e) {
         //let routes = require("./routes/" + text + "/index.js");
         
         // ------------------------------------------------------------------------ 4.5 start
+        // async call (easy way to do it):
+        //require("bundle!./routes/" + text + "/index.js")((routes) => {
+        //    let result = routes(text);
+        //    mainContainer.innerHTML = result;
+        //});
+        // ---------------------------- how to catch exception with incorrect path to module:
+        let handler;
+        
+        try {
+            handler = require("bundle!./routes/" + text + "/index.js");
+        } catch (e) {
+            console.log("failure!");
+            console.log(e);
+        }
+        
         // async call:
-        require("bundle!./routes/" + text + "/index.js")((routes) => {
-            let result = routes(text);
-            mainContainer.innerHTML = result;
-        });
+        if (handler) {
+            handler((routes) => {
+                let result = routes(text);
+                mainContainer.innerHTML = result;
+            });
+        }
         // ------------------------------------------------------------------------ 4.5 end
         
         //let routes = require("bundle!./routes/" + text + "/index.js");

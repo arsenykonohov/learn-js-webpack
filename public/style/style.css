@@ -57,6 +57,7 @@ body {
 }
 
 .nav__list a {
+    font-size: 14px;
     text-transform: uppercase;
     display: block;
     line-height: 30px;
