@@ -66,8 +66,8 @@ babel config (like `.babelrc`) inside `package.json`
 + 4.3. Advanced require | require(expression)      - *complete*;
 + 4.4. Advanced require | require.context          - *complete*;
 + 4.5. Advanced require | dynamic require.context  - *complete*;
-+ 4.6. Advanced require | ContextReplacementPlugin - ***just was looked***;
-+ 4.7. Advanced require | IgnorePlugin + summary   - ***just was looked***;
++ 4.6. Advanced require | ContextReplacementPlugin - *complete*;
++ 4.7. Advanced require | IgnorePlugin + summary   - *complete*;
 
 ***
 + 5.1. External libraries | CDN and Externals-builds - ***just was looked***;

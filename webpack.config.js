@@ -29,7 +29,8 @@ const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_EN
 const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 const errorsPlugin  = new webpack.NoErrorsPlugin();
 const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
-const contextReplPl = new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en-gb/);
+const contextReplPl = new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en/);
+const ignorePlugin  = new webpack.IgnorePlugin(/en-au|en-ca|en-ie|en-nz/); // not very cool way for exclude
 // LimitChunkCountPlugin, MinChunkSizePlugin, AggressiveMergingPlugin
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -125,7 +126,7 @@ myBuild.resolveLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [envDefinition, errorsPlugin, contextReplPl];
+myBuild.plugins = [envDefinition, errorsPlugin, contextReplPl, ignorePlugin];
 // commonsChunk,
 if (NODE_ENV === "public") {
     myBuild.plugins.push(uglifyPlugin);
@@ -144,6 +145,5 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
 
 
