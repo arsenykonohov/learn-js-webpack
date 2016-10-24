@@ -17,6 +17,7 @@ const compressConfig = {
     drop_console: true,
     unsafe:       false
 };
+
 const chunkConfig = {
     name: "shared",
     filename: "shared.js"
@@ -28,8 +29,8 @@ const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_EN
 const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 const errorsPlugin  = new webpack.NoErrorsPlugin();
 const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
+const contextReplPl = new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en-gb/);
 // LimitChunkCountPlugin, MinChunkSizePlugin, AggressiveMergingPlugin
-
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define loaders:
@@ -75,9 +76,12 @@ const babelLoader = {
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT /
 myBuild.context = path.resolve(__dirname + "/_sourse/4_dynamic");
+
 myBuild.entry = {
-    app: "./app"
+    app: "./app",
+    moment: "./moment"
 };
+
 myBuild.output = {
     path: path.resolve(__dirname + "/public/scripts/4_dynamic"),
     publicPath: "/scripts/4_dynamic/",
@@ -121,7 +125,7 @@ myBuild.resolveLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [envDefinition, errorsPlugin];
+myBuild.plugins = [envDefinition, errorsPlugin, contextReplPl];
 // commonsChunk,
 if (NODE_ENV === "public") {
     myBuild.plugins.push(uglifyPlugin);
@@ -130,9 +134,8 @@ if (NODE_ENV === "public") {
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS /
 myBuild.module = {};
+
 myBuild.module.loaders = [babelLoader];
-
-
 
 
 
@@ -141,12 +144,6 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
-
-
-
-
-
 
 
 
