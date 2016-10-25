@@ -2,9 +2,9 @@
 
 
 // -------------------------------------------------
-let map = require("lodash/map.js");
+//let map = require("lodash/map");
 
-// -------------------------------------------------
+
 let users = [
     {id: "x001", name: "Alfred"},
     {id: "x002", name: "Alisa"},
@@ -15,6 +15,6 @@ let users = [
 let userNames = map(users, "name")
 
 
-
 // -------------------------------------------------
+exports.map = map;
 exports.userNames = userNames;

@@ -22,9 +22,13 @@ const compressConfig = {
     unsafe:       false
 };
 
-const chunkConfig = {
+const CommonsChunkPluginConfig = {
     name: "shared",
     filename: "shared.js"
+};
+
+const ProvidePluginConfig = {
+    map: "lodash/map"
 };
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -32,10 +36,11 @@ const chunkConfig = {
 const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
 const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 const errorsPlugin  = new webpack.NoErrorsPlugin();
-const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
+const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(CommonsChunkPluginConfig);
 // LimitChunkCountPlugin, MinChunkSizePlugin, AggressiveMergingPlugin
 const contextReplPl = new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en/);
 const ignorePlugin  = new webpack.IgnorePlugin(/en-au|en-ca|en-ie|en-nz/); // not very cool way for exclude
+const providePlugin = new webpack.ProvidePlugin(ProvidePluginConfig);
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define loaders:
@@ -109,9 +114,9 @@ myBuild.output = {
     library: "[name]",
 };
 
-myBuild.externals = {
-    //jquery: "jQuery"
-}
+//myBuild.externals = {
+//    jquery: "jQuery"
+//}
 
 
 
@@ -147,7 +152,7 @@ myBuild.resolveLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [envDefinition, errorsPlugin];
+myBuild.plugins = [envDefinition, errorsPlugin, providePlugin];
 // commonsChunk, contextReplPl, ignorePlugin
 if (NODE_ENV === "public") {
     myBuild.plugins.push(uglifyPlugin);
@@ -162,8 +167,3 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
-
-
-
-
