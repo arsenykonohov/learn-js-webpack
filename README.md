@@ -17,6 +17,8 @@ $ NODE_ENV=public webpack
 ```
 $ webpack --display-modules -v
 $ webpack --json --profile > stats.json
+$ webpack --profile --display-modules
+$ webpack --profile --display-modules --display-reasons
 ```
 
 [upload stats.json here](https://webpack.github.io/analyse/)
@@ -70,10 +72,9 @@ babel config (like `.babelrc`) inside `package.json`
 + 4.7. Advanced require | IgnorePlugin + summary   - *complete*;
 
 ***
-+ 5.1. External libraries | CDN and myBuild: externals - *complete*;
-+ 5.2. External libraries | Local: ProvidePlugin       - *complete*;
-
-
++ 5.1. External libraries | CDN and myBuild: externals                          - *complete*;
++ 5.2. External libraries | Local: ProvidePlugin                                - *complete*;
++ 5.3. External libraries | Optimisation: noParse, include(babel-loader config) - *complete*;
 
 
 

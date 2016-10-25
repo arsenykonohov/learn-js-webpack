@@ -43,10 +43,14 @@ const ignorePlugin  = new webpack.IgnorePlugin(/en-au|en-ca|en-ie|en-nz/); // no
 const providePlugin = new webpack.ProvidePlugin(ProvidePluginConfig);
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
-// define loaders:
+// define NOPARSE:
 const babelLoader = {
     test: /\.js$/,
-    exclude: /(node_modules)/,
+    
+    //exclude: /(node_modules)/,
+    // instead exclude:
+    include: path.resolve(__dirname + "/_sourse"),
+    
     loader: "babel",
     query: {
         plugins: ["transform-runtime"],
@@ -165,5 +169,19 @@ myBuild.module = {};
 myBuild.module.loaders = [babelLoader];
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
+// NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE /
+myBuild.module.noParse = [/node_modules[\/\\]angular[\/\\]angular.js/];
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
+
+
+
+
+
+
