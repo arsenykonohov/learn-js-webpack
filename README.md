@@ -75,6 +75,15 @@ babel config (like `.babelrc`) inside `package.json`
 + 5.1. External libraries | CDN and myBuild: externals                          - *complete*;
 + 5.2. External libraries | Local: ProvidePlugin                                - *complete*;
 + 5.3. External libraries | Optimisation: noParse, include(babel-loader config) - *complete*;
++ 5.4. External libraries | Legacy: pathes, imports/exports                     - *complete*;
+
+
+
+
+
+
+
+
 
 
 

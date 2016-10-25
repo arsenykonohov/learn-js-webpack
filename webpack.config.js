@@ -109,11 +109,11 @@ const babelLoader = {
 myBuild.context = path.resolve(__dirname + "/_sourse/5_external");
 
 myBuild.entry = {
-    app: "./"
+    app: "./app"
 };
 
 myBuild.output = {
-    path: path.resolve(__dirname + "/public/scripts/5_external"),
+    path: path.resolve(__dirname + "/public/scripts/5_external/"),
     filename: "[name].js",
     library: "[name]",
 };
@@ -121,6 +121,26 @@ myBuild.output = {
 //myBuild.externals = {
 //    jquery: "jQuery"
 //}
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
+myBuild.resolve = {
+    root: path.resolve(__dirname + "/_vendors"),
+    modulesDirectories: ["node_modules"],
+    extensions: ["", ".js"]
+};
+
+myBuild.resolveLoader = {
+    modulesDirectories: ["node_modules"],
+    moduleTemplates: ["*-loader", "*"],
+    extensions: ["", ".js"]
+};
+
+
 
 
 
@@ -136,19 +156,6 @@ myBuild.watchOptioins = {
 // SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP /
 //myBuild.devtool = "inline-cheap-source-map";
 myBuild.devtool = NODE_ENV === "developer" ? "cheap-inline-module-source-map" : null;
-
-// ---------------------------------------------------------------------------------------------------------------------------------------
-// RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
-myBuild.resolve = {
-    modulesDirectories: ["node_modules"],
-    extensions: ["", ".js"]
-};
-
-myBuild.resolveLoader = {
-    modulesDirectories: ["node_modules"],
-    moduleTemplates: ["*-loader", "*"],
-    extensions: ["", ".js"]
-};
 
 
 
@@ -170,7 +177,7 @@ myBuild.module.loaders = [babelLoader];
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE /
-myBuild.module.noParse = [/node_modules[\/\\]angular[\/\\]angular.js/];
+//myBuild.module.noParse = [/node_modules[\/\\]angular[\/\\]angular.js/];
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
