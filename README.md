@@ -70,7 +70,7 @@ babel config (like `.babelrc`) inside `package.json`
 + 4.7. Advanced require | IgnorePlugin + summary   - *complete*;
 
 ***
-+ 5.1. External libraries | CDN and Externals-builds - ***just was looked***;
++ 5.1. External libraries | CDN and myBuild: externals - *complete*;
 
 
 

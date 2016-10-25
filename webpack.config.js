@@ -10,6 +10,10 @@ const path     = require("path");
 const myBuild  = {};
 const NODE_ENV = process.env.NODE_ENV || "developer";
 
+
+
+
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // plugin configs:
 const compressConfig = {
@@ -29,9 +33,9 @@ const envDefinition = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_EN
 const uglifyPlugin  = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 const errorsPlugin  = new webpack.NoErrorsPlugin();
 const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(chunkConfig);
+// LimitChunkCountPlugin, MinChunkSizePlugin, AggressiveMergingPlugin
 const contextReplPl = new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en/);
 const ignorePlugin  = new webpack.IgnorePlugin(/en-au|en-ca|en-ie|en-nz/); // not very cool way for exclude
-// LimitChunkCountPlugin, MinChunkSizePlugin, AggressiveMergingPlugin
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // define loaders:
@@ -49,8 +53,8 @@ const babelLoader = {
 
 
 
-// ---------------------------------------------------------------------------------------------------------------------------------------
-// ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
+//// ---------------------------------------------------------------------------------------------------------------------------------------
+//// ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
 //myBuild.entry = "./_sourse/2_unidirection";
 //myBuild.output = {
 //    path: "./public/scripts/2_unidirection",
@@ -59,8 +63,8 @@ const babelLoader = {
 //};
 
 
-// ---------------------------------------------------------------------------------------------------------------------------------------
-// MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
+//// ---------------------------------------------------------------------------------------------------------------------------------------
+//// MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT / MULTIPLY ENTRY & OUTPUT /
 //myBuild.context = path.resolve(__dirname + "/_sourse/3_multiple");
 //myBuild.entry = {
 //    home: "./home",
@@ -74,23 +78,40 @@ const babelLoader = {
 //};
 
 
+//// ---------------------------------------------------------------------------------------------------------------------------------------
+//// DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT /
+//myBuild.context = path.resolve(__dirname + "/_sourse/4_dynamic");
+//
+//myBuild.entry = {
+//    app: "./app",
+//    moment: "./moment"
+//};
+//
+//myBuild.output = {
+//    path: path.resolve(__dirname + "/public/scripts/4_dynamic"),
+//    publicPath: "/scripts/4_dynamic/",
+//    filename: "[name].js",
+//    library: "[name]",
+//};
+
+
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT /
-myBuild.context = path.resolve(__dirname + "/_sourse/4_dynamic");
+myBuild.context = path.resolve(__dirname + "/_sourse/5_external");
 
 myBuild.entry = {
-    app: "./app",
-    moment: "./moment"
+    app: "./"
 };
 
 myBuild.output = {
-    path: path.resolve(__dirname + "/public/scripts/4_dynamic"),
-    publicPath: "/scripts/4_dynamic/",
+    path: path.resolve(__dirname + "/public/scripts/5_external"),
     filename: "[name].js",
     library: "[name]",
 };
 
-
+myBuild.externals = {
+    jquery: "jQuery"
+}
 
 
 
@@ -126,8 +147,8 @@ myBuild.resolveLoader = {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [envDefinition, errorsPlugin, contextReplPl, ignorePlugin];
-// commonsChunk,
+myBuild.plugins = [envDefinition, errorsPlugin];
+// commonsChunk, contextReplPl, ignorePlugin
 if (NODE_ENV === "public") {
     myBuild.plugins.push(uglifyPlugin);
 }
@@ -138,12 +159,13 @@ myBuild.module = {};
 
 myBuild.module.loaders = [babelLoader];
 
-
-
-
-
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
+
 
 
