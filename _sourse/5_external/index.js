@@ -1,8 +1,8 @@
 "use strict";
 
+
 // -------------------------------------------------
-let $ = require("jquery");
-let btns = $(".lnk");
+let map = require("lodash/map.js");
 
 // -------------------------------------------------
 let users = [
@@ -12,9 +12,9 @@ let users = [
     {id: "x004", name: "Clara"}
 ];
 
+let userNames = map(users, "name")
+
+
+
 // -------------------------------------------------
-// common.js module style:
-exports.lib = $;
-exports.btns = btns;
-exports.users = users;
-exports.userNames = _.map(users, "name");
+exports.userNames = userNames;

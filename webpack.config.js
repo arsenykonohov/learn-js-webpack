@@ -110,7 +110,7 @@ myBuild.output = {
 };
 
 myBuild.externals = {
-    jquery: "jQuery"
+    //jquery: "jQuery"
 }
 
 
@@ -162,8 +162,6 @@ myBuild.module.loaders = [babelLoader];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
-
 
 
 
