@@ -58,9 +58,9 @@ babel config (like `.babelrc`) inside `package.json`
 + 3.2. Multiple scripts | NoErrorsPlugin                - *complete*;
 + 3.3. Multiple scripts | CommonsChunkPlugin            - *complete*;
 + 3.4. Multiple scripts | Build Info                    - *complete*;
-+ 3.5. Multiple scripts | Adjust CommonsChunkPlugin     - *just i realized*;
++ 3.5. Multiple scripts | Adjust CommonsChunkPlugin     - *i just realized*;
 + 3.6. Multiple scripts | shared.js as moule and entry  - *complete*;
-+ 3.7. Multiple scripts | Multi-Compilation and Summary - *just i realized*;
++ 3.7. Multiple scripts | Multi-Compilation and Summary - *i just realized*;
 
 ***
 + 4.1. Advanced require | Dynamic require          - *complete*;
@@ -76,10 +76,10 @@ babel config (like `.babelrc`) inside `package.json`
 + 5.2. External libraries | Local: ProvidePlugin                                - *complete*;
 + 5.3. External libraries | Optimisation: noParse, include(babel-loader config) - *complete*;
 + 5.4. External libraries | Legacy: pathes, imports/exports                     - *complete*;
++ 5.5. External libraries | expose & script-loader                              - *i just realized*;
 
-
-
-
+***
++ 6.1. Styles and assets | component `menu`, style-loader - *i just looked*;
 
 
 
