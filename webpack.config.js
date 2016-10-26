@@ -130,6 +130,9 @@ myBuild.output = {
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
 myBuild.resolve = {
     root: path.resolve(__dirname + "/_vendors"),
+    alias: {
+        lib: "legacy/library",
+    },
     modulesDirectories: ["node_modules"],
     extensions: ["", ".js"]
 };
