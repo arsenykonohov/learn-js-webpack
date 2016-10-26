@@ -9,23 +9,24 @@
     },
     "main": "index.js",
     "babel": {
-        "presets": ["es2015"],
+        "presets": [
+      "es2015"
+    ],
         "minified": false
     },
     "dependencies": {},
     "devDependencies": {
+        "autoprefixer": "^6.5.1",
         "babel-core": "^6.17.0",
         "babel-loader": "^6.2.5",
-        "babel-plugin-transform-runtime": "^6.15.0",
         "babel-preset-es2015": "^6.16.0",
-        "babel-preset-stage-0": "^6.16.0",
-        "bundle-loader": "^0.5.4",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "style-loader": "^0.13.1",
+        "browserslist": "^1.3.6",
         "css-loader": "^0.25.0",
-        "url-loader": "^0.5.7",
-        "exports-loader": "^0.6.3",
-        "imports-loader": "^0.6.5",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "postcss-loader": "^1.0.0",
+        "postcss-smart-import": "^0.4.3",
+        "precss": "^1.4.0",
+        "style-loader": "^0.13.1",
         "webpack": "1.13.2"
     }
 }

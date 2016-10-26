@@ -1,6 +1,5 @@
+
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-family: sans-serif;
 }
@@ -80,7 +79,9 @@ body {
 
 .center button {
     margin-top: 20px;
-}.nav {
+}
+
+.nav {
     display: block;
     min-height: 50px;
     background-color: #304e79;
@@ -108,5 +109,6 @@ body {
 
 .nav__item a:hover {
     background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px 2px 6px rgba(0,0,0,.4);
 }
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vc3R5bGUvc3R5bGUuY3NzIiwic291cmNlcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsiLCJzb3VyY2VSb290IjoiIn0=*/
+
