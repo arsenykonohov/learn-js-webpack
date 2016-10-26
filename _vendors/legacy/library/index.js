@@ -1,10 +1,8 @@
-"use strict";
-
-
-function Work(arg) {
-    return arg + " legacy code!";
+function Legacy(arg) {
+    let name = "legacy-module.";
+    return {
+        arg: arg,
+        config: globalLegacySettings,
+        name: name
+    };
 }
-
-
-
-module.exports = Work;
