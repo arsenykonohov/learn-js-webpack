@@ -80,33 +80,4 @@ body {
 
 .center button {
     margin-top: 20px;
-}.nav {
-    display: block;
-    min-height: 50px;
-    background-color: #304e79;
-    z-index: 4;
 }
-
-.nav__list {
-    display: block;
-    text-align: center;
-}
-
-.nav__item {
-    color: #fff;
-    display: inline-block;
-    margin: 0;
-}
-
-.nav__item a {
-    font-size: 14px;
-    text-transform: uppercase;
-    display: block;
-    line-height: 30px;
-    padding: 10px 20px;
-}
-
-.nav__item a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vc3R5bGUvc3R5bGUuY3NzIiwic291cmNlcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsiLCJzb3VyY2VSb290IjoiIn0=*/

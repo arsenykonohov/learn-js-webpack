@@ -1,0 +1,29 @@
+.nav {
+    display: block;
+    min-height: 50px;
+    background-color: #304e79;
+    z-index: 4;
+}
+
+.nav__list {
+    display: block;
+    text-align: center;
+}
+
+.nav__item {
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+}
+
+.nav__item a {
+    font-size: 14px;
+    text-transform: uppercase;
+    display: block;
+    line-height: 30px;
+    padding: 10px 20px;
+}
+
+.nav__item a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}

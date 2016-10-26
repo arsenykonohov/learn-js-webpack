@@ -5,11 +5,11 @@
 // just "webpack" - in developer mode;
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
-const webpack  = require("webpack");
-const path     = require("path");
-const myBuild  = {};
-const NODE_ENV = process.env.NODE_ENV || "developer";
-
+const webpack    = require("webpack");
+const path       = require("path");
+const myBuild    = {};
+const NODE_ENV   = process.env.NODE_ENV || "developer";
+const extractTxt = require('extract-text-webpack-plugin');
 
 
 
@@ -39,6 +39,7 @@ const commonsChunk  = new webpack.optimize.CommonsChunkPlugin(CommonsChunkPlugin
 const contextReplPl = new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en/);
 const ignorePlugin  = new webpack.IgnorePlugin(/en-au|en-ca|en-ie|en-nz/); // not very cool way for exclude
 const providePlugin = new webpack.ProvidePlugin(ProvidePluginConfig);
+const extractTextPl = new extractTxt("../../style/style.css");
 
 
 
@@ -61,25 +62,49 @@ const importExportLoaders = {
     test: /extlib.js$/,
     loader: "imports?globalLegacySettings=>'global-config-for-legacy-code'!exports?Legacy",
 }
+const cssStyleLoader = {
+    test: /\.css$/,
+    include: path.resolve(__dirname + "/_sourse"),
+    loader: "style!css"
+}
+const extractStyleLoader = {
+    test: /\.css$/,
+    include: path.resolve(__dirname + "/_sourse"),
+    loader: extractTextPl.extract("style" ,"css")
+}
 
 
 
 
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
-// DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT / DYNAMIC ENTRY & OUTPUT /
-myBuild.context = path.resolve(__dirname + "/_sourse/5_external");
+// EXTERNAL ENTRY & OUTPUT / EXTERNAL ENTRY & OUTPUT / EXTERNAL ENTRY & OUTPUT / EXTERNAL ENTRY & OUTPUT / EXTERNAL ENTRY & OUTPUT /
+//myBuild.context = path.resolve(__dirname + "/_sourse/5_external");
+//myBuild.entry = {
+//    app: "./app"
+//};
+//myBuild.output = {
+//    path: path.resolve(__dirname + "/public/scripts/5_external/"),
+//    filename: "[name].js",
+//    library: "[name]",
+//};
+////myBuild.externals = {
+////    jquery: "jQuery"
+////}
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT /
+myBuild.context = path.resolve(__dirname + "/_sourse/6_files");
+
 myBuild.entry = {
     app: "./app"
 };
+
 myBuild.output = {
-    path: path.resolve(__dirname + "/public/scripts/5_external/"),
+    path: path.resolve(__dirname + "/public/scripts/6_files/"),
     filename: "[name].js",
     library: "[name]",
 };
-//myBuild.externals = {
-//    jquery: "jQuery"
-//}
 
 
 
@@ -88,10 +113,6 @@ myBuild.output = {
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
 myBuild.resolve = {
-    root: path.resolve(__dirname + "/_vendors"),
-    alias: {
-        extlib: "legacy/library/extlib.js",
-    },
     modulesDirectories: ["node_modules"],
     extensions: ["", ".js"]
 };
@@ -123,7 +144,7 @@ myBuild.devtool = NODE_ENV === "developer" ? "cheap-inline-module-source-map" : 
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-myBuild.plugins = [envDefinition, errorsPlugin];
+myBuild.plugins = [envDefinition, errorsPlugin, extractTextPl];
 // commonsChunk, contextReplPl, ignorePlugin, providePlugin
 if (NODE_ENV === "public") {
     myBuild.plugins.push(uglifyPlugin);
@@ -132,7 +153,8 @@ if (NODE_ENV === "public") {
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS /
 myBuild.module = {};
-myBuild.module.loaders = [babelLoader, importExportLoaders];
+// importExportLoaders, cssStyleLoader,
+myBuild.module.loaders = [babelLoader, extractStyleLoader];
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE / NOPARSE /
@@ -141,6 +163,12 @@ myBuild.module.loaders = [babelLoader, importExportLoaders];
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
+
+
 
 
 

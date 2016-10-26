@@ -9,40 +9,31 @@
 
 <body>
     <div class="page">
-        <div class="page__container header"></div>
-        <div class="page__container nav">
-            <ul class="nav__list">
-                <!-- router for dynamic modules checking -->
-                <li class="nav__item"><a class="lnk js_rout" href="javascript:void(0);">home</a></li>
-                <li class="nav__item"><a class="lnk js_rout" href="javascript:void(0);">about</a></li>
-                <li class="nav__item"><a class="lnk js_rout" href="javascript:void(0);">fail</a></li>
-                <!-- router -->
-                <li id="js_login"  class="nav__item"><a class="lnk" href="javascript:void(0);">login</a></li>
-                <li id="js_logout" class="nav__item"><a class="lnk" href="javascript:void(0);">logout</a></li>
-            </ul>
-        </div>
-        <div id="js_main"   class="page__container main"></div>
-        <div id="js_footer" class="page__container footer"></div>
+        <header class="page__container header"></header>
+        <nav    class="page__container nav" id="js_nav"></nav>
+        <main   class="page__container main"></main>
+        <footer class="page__container footer"></footer>
     </div>
 
 <!-- ================================================================================ -->
-<!--    <script src="./scripts/2_unidirection/main.js"></script>-->
-<!--    <script>console.log(app);</script>-->
-<!-- ================================================================================ -->
-<!--    <script src="./scripts/3_multiple/shared.js"></script>-->
-<!--    <script src="./scripts/3_multiple/home.js"></script>-->
-<!--    <script src="./scripts/3_multiple/about.js"></script>-->
-<!--    <script>console.log(home, about);</script>-->
-<!-- ================================================================================ -->
-<!--    <script src="./scripts/4_dynamic/app.js"></script>-->
-<!--    <script src="./scripts/4_dynamic/moment.js"></script>-->
-<!--    <script>console.log(moment);</script>-->
-<!-- ================================================================================ -->
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>-->
-    <script src="./scripts/5_external/app.js"></script>
+<!--    <script src="./scripts/5_external/app.js"></script>-->
+<!--    <script>console.log(app);</script>-->
+<!-- ================================================================================ -->
+    <script src="./scripts/6_files/app.js"></script>
     <script>console.log(app);</script>
-    <script>console.log(app.lib);</script>
 </body>
 
 </html>
+
+
+<!--
+            <ul class="nav__list">
+                <li class="nav__item"><a class="lnk rout" href="javascript:void(0);">home</a></li>
+                <li class="nav__item"><a class="lnk rout" href="javascript:void(0);">about</a></li>
+                <li class="nav__item"><a class="lnk rout" href="javascript:void(0);">fail</a></li>
+                <li class="nav__item"><a class="lnk rout" href="javascript:void(0);">login</a></li>
+                <li class="nav__item"><a class="lnk rout" href="javascript:void(0);">logout</a></li>
+            </ul>
+-->

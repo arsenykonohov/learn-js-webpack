@@ -79,7 +79,8 @@ babel config (like `.babelrc`) inside `package.json`
 + 5.5. External libraries | expose & script-loader                              - *i just realized*;
 
 ***
-+ 6.1. Styles and assets | component `menu`, style-loader - *i just looked*;
++ 6.1. Styles and assets | `nav`, style-loader - *complete*;
++ 6.6. Styles and assets | ExtractTextPlugin   - *get started*;
 
 
 
