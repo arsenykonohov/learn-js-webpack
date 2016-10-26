@@ -16,8 +16,7 @@ process.env.BROWSERSLIST = "last 2 version, > 5%";
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractStyle      = new ExtractTextPlugin("../../style/style.css");
-//const extractStyle      = new ExtractTextPlugin("../../style/style.css", {allChunks: true});
+const extractStyle      = new ExtractTextPlugin("../../style/style.css", {allChunks: true});
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT /
@@ -34,21 +33,8 @@ myBuild.output = {
 };
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
-// RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
-myBuild.resolve = {
-    modulesDirectories: ["node_modules"],
-    extensions: ["", ".js"]
-};
-myBuild.resolveLoader = {
-    modulesDirectories: ["node_modules"],
-    moduleTemplates: ["*-loader", "*"],
-    extensions: ["", ".js"]
-};
-
-// ---------------------------------------------------------------------------------------------------------------------------------------
 // WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER /
 myBuild.watch = (NODE_ENV === "developer");
-myBuild.watchOptioins = {aggregateTimeout: 2000};
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP /
@@ -68,7 +54,7 @@ myBuild.module.loaders = [
     },
     {
         test: /\.css$/,
-        loader: extractStyle.extract("style-loader" ,"css-loader", "postcss-loader")
+        loader: extractStyle.extract("style-loader!css-loader!postcss-loader")
     }
 ];
 
@@ -78,7 +64,6 @@ myBuild.plugins = [
     new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)}),
     extractStyle
 ];
-
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS / PostCSS /
