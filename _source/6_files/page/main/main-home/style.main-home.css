@@ -3,9 +3,9 @@
 .main:before {
     color: #fff;
     content: 'home';
-    background-color: #054100;
+    background-color: #555;
     font-size: 18px;
-    padding: 20px;
+    padding: 16px 30px;
     display: block;
     position: absolute;
     top: 50%;

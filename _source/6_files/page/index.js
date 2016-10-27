@@ -1,11 +1,11 @@
 "use strict";
 // ----------------------------------------------------
 import "./style.page.css";
+import "./flag/style.flag.css";
 import footer from "./footer";
 import header from "./header";
 import main   from "./main";
 import Menu   from "./nav";
-
 
 
 // ----------------------------------------------------

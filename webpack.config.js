@@ -58,7 +58,14 @@ let cssStyleLoader = {
 
 let fileLoader = {
     test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-    loader: "file?name=[path][name].[ext]"
+    exclude: /(node_modules)/,
+    loader: "file?name=assets/project/[path][name].[ext]"
+};
+
+let vendorFileLoader = {
+    test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+    include: path.resolve(__dirname + "/node_modules"),
+    loader: "file?name=assets/vendor/[name].[ext]&regExp=_/_/node_modules/(.*)"
 };
 
 let urlLoader = {
@@ -72,10 +79,9 @@ let urlLoader = {
 //    loader: extractStyles.extract("style", ["css?minimize", "postcss"])
 //}
 
-
 myBuild.module = {};
 
-myBuild.module.loaders = [babelLoader, cssStyleLoader, fileLoader];
+myBuild.module.loaders = [babelLoader, cssStyleLoader, fileLoader, vendorFileLoader];
 
 
 
@@ -135,7 +141,6 @@ myBuild.devtool = NODE_ENV === "developer" ? "cheap-module-source-map" : null;
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
 
 
 

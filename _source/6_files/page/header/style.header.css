@@ -1,6 +1,7 @@
 
 /* ============================ header ============================ */
 .header {
+    text-align: center;
     min-height: 100px;
     background-color: #83d0b5;
     background-image: url("./pattern_1.png");
@@ -8,4 +9,3 @@
     background-repeat: repeat;
     z-index: 5;
 }
-

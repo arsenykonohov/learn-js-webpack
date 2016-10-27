@@ -1,8 +1,9 @@
 
 /* ===================================== footer ===================================== */
 .footer {
-    color: #fff;
+    color: #333;
+    text-align: center;
     min-height: 150px;
-    background-color: #333;
+    background-color: #222;
     z-index: 3;
 }

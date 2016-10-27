@@ -3,9 +3,9 @@
 .main:after {
     color: #fff;
     content: 'product';
-    background-color: #3b0e37;
+    background-color: #555;
     font-size: 18px;
-    padding: 20px;
+    padding: 16px 30px;
     display: block;
     position: absolute;
     top: 50%;
