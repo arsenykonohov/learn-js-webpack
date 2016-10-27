@@ -84,9 +84,9 @@ myBuild.module = {};
 myBuild.module.loaders = [
     babelLoader,
     cssStyleLoader,
-//    fileLoader,
-//    vendorFileLoader
-    urlLoader
+    fileLoader,
+    vendorFileLoader
+//    urlLoader
 ];
 
 

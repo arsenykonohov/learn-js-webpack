@@ -79,10 +79,12 @@ babel config (like `.babelrc`) inside `package.json`
 + 5.5. External libraries | expose & script-loader                              - *i just realized*;
 
 ***
-+ 6.1. Styles and assets | `nav`, style-loader             - *complete*;
-+ 6.2. Styles and assets | `main`, css-loader, file-loader - *complete*;
-+ 6.3. Styles and assets | `main`, url-loader              - *complete*;
-+ 6.6. Styles and assets | ExtractTextPlugin               - *in progress*;
++ 6.1. Styles and assets | `nav`, style-loader            - *complete*;
++ 6.2. Styles and assets | css-loader, file-loader        - *complete*;
++ 6.3. Styles and assets | `header`, `footer`, url-loader - *complete*;
++ 6.4. Styles and assets | `main`, jade-loader            - *get started*;
++ 6.5. Styles and assets | post-css, scss-loader (sass)   - *in progress*;
++ 6.6. Styles and assets | ExtractTextPlugin              - *in progress*;
 
 
 
