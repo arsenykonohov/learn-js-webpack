@@ -1,0 +1,57 @@
+
+/* ============================ page ============================ */
+.page {
+    height: 100%;
+    border: solid 3px #c00;
+}
+
+.page__container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================ miscellaneous ============================ */
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body,
+a,
+p,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.center {
+    color: #444;
+    text-align: center;
+    padding: 10px;
+}
+
+.center h2 {
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.center button {
+    margin-top: 20px;
+}

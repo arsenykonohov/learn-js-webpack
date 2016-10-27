@@ -1,14 +1,16 @@
 "use strict";
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
-// "NODE_ENV=public webpack" - exmple for production;
-// just "webpack" - in developer mode;
+// "NODE_ENV=production webpack" - for production;
 
-// ---------------------------------------------------------------------------------------------------------------------------------------
-const webpack  = require("webpack");
-const path     = require("path");
-const myBuild  = {};
-const NODE_ENV = process.env.NODE_ENV || "developer";
+let NODE_ENV             = process.env.NODE_ENV || "developer";
+process.env.BROWSERSLIST = "last 10 versions";
+
+let webpack           = require("webpack");
+let path              = require("path");
+let myBuild           = {};
+let extractTextPlugin = require("extract-text-webpack-plugin");
+let autoprefixer      = require("autoprefixer");
 
 
 
@@ -16,27 +18,20 @@ const NODE_ENV = process.env.NODE_ENV || "developer";
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS / PLUGINS /
-const compressConfig = {
+let compressConfig = {
     warnings:     false,
     drop_console: true,
     unsafe:       false
 };
 
-const ProvidePluginConfig = {
-    map: "lodash/map"
-};
-
-const envDefinition     = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
-const uglifyPlugin      = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
-const errorsPlugin      = new webpack.NoErrorsPlugin();
-const extractTextPlugin = require('extract-text-webpack-plugin');
-const extractStyles     = new extractTextPlugin("../../style/style.css");
+let envDefinition     = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
+let uglifyPlugin      = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
+let errorsPlugin      = new webpack.NoErrorsPlugin();
+let extractStyles     = new extractTextPlugin("../../style/style.css");
 
 myBuild.plugins = [envDefinition, errorsPlugin, extractStyles];
 
-if (NODE_ENV === "public") {
-    myBuild.plugins.push(uglifyPlugin);
-}
+(NODE_ENV === "production") ? myBuild.plugins.push(uglifyPlugin) : console.log("DEVELOP MODE ===================================== ");
 
 
 
@@ -44,7 +39,7 @@ if (NODE_ENV === "public") {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS / LOADERS /
-const babelLoader = {
+let babelLoader = {
     test: /\.js$/,
     exclude: /(node_modules)/,
     include: path.resolve(__dirname + "/_source"),
@@ -55,22 +50,39 @@ const babelLoader = {
     }
 };
 
-const extractStyleLoader = {
+let cssStyleLoader = {
     test: /\.css$/,
-    include: path.resolve(__dirname + "/_source"),
-    loader: extractStyles.extract("style" ,"css")
+    include: path.resolve(__dirname + "/_source/6_files"),
+    loader: "style!css?minimize!postcss"
 }
+
+//let extractStyleLoader = {
+//    test: /\.css$/,
+//    include: path.resolve(__dirname + "/_source/6_files"),
+//    loader: extractStyles.extract("style", ["css?minimize", "postcss"])
+//}
 
 myBuild.module = {};
 
-myBuild.module.loaders = [babelLoader, extractStyleLoader];
+myBuild.module.loaders = [babelLoader, cssStyleLoader];
 
 
 
 
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
-// FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT / FILES ENTRY & OUTPUT /
+// POSTCSS PLUGINS / POSTCSS PLUGINS / POSTCSS PLUGINS / POSTCSS PLUGINS / POSTCSS PLUGINS / POSTCSS PLUGINS / POSTCSS PLUGINS /
+myBuild.postcss = function () {
+    console.log("POSTCSS RUNS ===================================== ", process.env.BROWSERSLIST);
+    return [autoprefixer()];
+};
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
 myBuild.context = path.resolve(__dirname + "/_source/6_files");
 
 myBuild.entry = {
@@ -78,14 +90,10 @@ myBuild.entry = {
 };
 
 myBuild.output = {
-    path: path.resolve(__dirname + "/public/scripts/6_files/"),
+    path: path.resolve(__dirname + "/public/resource/scripts/6_files/"),
     filename: "[name].js",
     library: "[name]",
 };
-
-
-
-
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING / RESOLVING /
@@ -100,10 +108,6 @@ myBuild.resolveLoader = {
     extensions: ["", ".js"]
 };
 
-
-
-
-
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER / WATCHER /
 myBuild.watch = (NODE_ENV === "developer");
@@ -116,13 +120,19 @@ myBuild.watchOptioins = {
 // SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP / SOURCE MAP /
 myBuild.devtool = NODE_ENV === "developer" ? "cheap-module-source-map" : null;
 
-
-
-
-
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
+
+
+
+
+
+
 
 
 

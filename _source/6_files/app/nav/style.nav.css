@@ -1,3 +1,4 @@
+
 .nav {
     display: block;
     min-height: 50px;
@@ -26,4 +27,6 @@
 
 .nav__item a:hover {
     background-color: rgba(0, 0, 0, 0.3);
+    transition: all .5s;
+    box-shadow: inset 0px 2px 6px rgba(0, 0, 0, 0.4);
 }

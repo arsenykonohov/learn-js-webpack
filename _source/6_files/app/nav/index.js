@@ -1,8 +1,8 @@
 "use strict";
-
-
 // -------------------------------------------------
-import "./style.css";
+import "./style.nav.css";
+
+
 
 // -------------------------------------------------
 export default class Menu {
