@@ -7,3 +7,9 @@
     background-color: #222;
     z-index: 3;
 }
+
+.footer img {
+    width: 120px;
+    height: 120px;
+    margin-top: 15px;
+}

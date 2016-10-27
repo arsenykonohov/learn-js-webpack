@@ -85,7 +85,7 @@ myBuild.module.loaders = [
     babelLoader,
     cssStyleLoader,
 //    fileLoader,
-//    vendorFileLoader,
+//    vendorFileLoader
     urlLoader
 ];
 
@@ -147,9 +147,6 @@ myBuild.devtool = NODE_ENV === "developer" ? "cheap-module-source-map" : null;
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
-
-
-
 
 
 
