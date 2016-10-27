@@ -70,7 +70,7 @@ let vendorFileLoader = {
 
 let urlLoader = {
     test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-    loader: "url"
+    loader: "url?name=assets/[path][name].[ext]&limit=100000"
 };
 
 //let extractStyleLoader = {
@@ -81,7 +81,13 @@ let urlLoader = {
 
 myBuild.module = {};
 
-myBuild.module.loaders = [babelLoader, cssStyleLoader, fileLoader, vendorFileLoader];
+myBuild.module.loaders = [
+    babelLoader,
+    cssStyleLoader,
+//    fileLoader,
+//    vendorFileLoader,
+    urlLoader
+];
 
 
 
