@@ -1,0 +1,11 @@
+
+/* ============================ header ============================ */
+.header {
+    min-height: 100px;
+    background-color: #83d0b5;
+    background-image: url("./pattern_1.png");
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    z-index: 5;
+}
+

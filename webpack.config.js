@@ -54,7 +54,17 @@ let cssStyleLoader = {
     test: /\.css$/,
     include: path.resolve(__dirname + "/_source/6_files"),
     loader: "style!css?minimize!postcss"
-}
+};
+
+let fileLoader = {
+    test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+    loader: "file?name=[path][name].[ext]"
+};
+
+let urlLoader = {
+    test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+    loader: "url"
+};
 
 //let extractStyleLoader = {
 //    test: /\.css$/,
@@ -62,9 +72,10 @@ let cssStyleLoader = {
 //    loader: extractStyles.extract("style", ["css?minimize", "postcss"])
 //}
 
+
 myBuild.module = {};
 
-myBuild.module.loaders = [babelLoader, cssStyleLoader];
+myBuild.module.loaders = [babelLoader, cssStyleLoader, fileLoader];
 
 
 
@@ -86,11 +97,12 @@ myBuild.postcss = function () {
 myBuild.context = path.resolve(__dirname + "/_source/6_files");
 
 myBuild.entry = {
-    app: "./app"
+    app: "./page"
 };
 
 myBuild.output = {
     path: path.resolve(__dirname + "/public/resource/scripts/6_files/"),
+    publicPath: "/resource/scripts/6_files/",
     filename: "[name].js",
     library: "[name]",
 };

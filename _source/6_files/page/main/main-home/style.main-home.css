@@ -1,0 +1,14 @@
+
+/* ============================ main-home ============================ */
+.main:before {
+    color: #fff;
+    content: 'home';
+    background-color: #054100;
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 100;
+}

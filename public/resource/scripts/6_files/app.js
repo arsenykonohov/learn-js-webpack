@@ -35,7 +35,7 @@ var app =
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/resource/scripts/6_files/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -50,15 +50,19 @@ var app =
 
 	__webpack_require__(1);
 
-	__webpack_require__(5);
+	var _footer = __webpack_require__(6);
 
-	__webpack_require__(7);
+	var _footer2 = _interopRequireDefault(_footer);
 
-	__webpack_require__(9);
+	var _header = __webpack_require__(9);
 
-	__webpack_require__(11);
+	var _header2 = _interopRequireDefault(_header);
 
-	var _nav = __webpack_require__(13);
+	var _main = __webpack_require__(13);
+
+	var _main2 = _interopRequireDefault(_main);
+
+	var _nav = __webpack_require__(18);
 
 	var _nav2 = _interopRequireDefault(_nav);
 
@@ -66,16 +70,16 @@ var app =
 
 	// ----------------------------------------------------
 	var navInputData = ["home", "about", "login"];
-
-	// ----------------------------------------------------
-
 	var navGenrator = new _nav2.default(navInputData, "js_nav", "nav");
 
 	navGenrator.createMenu();
 	navGenrator.createListeners();
 
 	// ----------------------------------------------------
-	exports.name = navGenrator.name;
+	exports.footer = _footer2.default.name;
+	exports.header = _header2.default.name;
+	exports.main = _main2.default.name;
+	exports.nav = navGenrator.name;
 
 /***/ },
 /* 1 */
@@ -87,14 +91,14 @@ var app =
 	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.example.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.example.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.page.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.page.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -112,7 +116,7 @@ var app =
 
 
 	// module
-	exports.push([module.id, ".example{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transition:all .5s;transition:all .5s;-webkit-box-shadow:inset 0 2px 6px rgba(0,0,0,.4);box-shadow:inset 0 2px 6px rgba(0,0,0,.4);background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#000));background:-webkit-linear-gradient(top,#fff,#000);background:linear-gradient(180deg,#fff,#000)}", ""]);
+	exports.push([module.id, "*{-webkit-box-sizing:border-box;box-sizing:border-box;font-family:sans-serif}a,body,h1,h2,h3,h4,h5,h6,html,li,p,ul{margin:0;padding:0;text-decoration:none;list-style:none;color:inherit}.page,body,html{height:100%}.page{border:3px solid #c00;background-color:#de3f63;background-image:url(" + __webpack_require__(4) + ");background-position:50% 50%;background-repeat:repeat}.page__container{position:relative;z-index:1}", ""]);
 
 	// exports
 
@@ -175,6 +179,12 @@ var app =
 
 /***/ },
 /* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "page/pattern_2.png";
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -426,44 +436,22 @@ var app =
 
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(6);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.footer.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.footer.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
-	// imports
+	"use strict";
+	// ----------------------------------------------------
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 
-	// module
-	exports.push([module.id, ".footer{color:#fff;min-height:150px;background-color:#333;z-index:3}", ""]);
+	__webpack_require__(7);
 
-	// exports
-
+	// ----------------------------------------------------
+	exports.default = {
+	    name: "footer"
+		};
 
 /***/ },
 /* 7 */
@@ -475,14 +463,14 @@ var app =
 	var content = __webpack_require__(8);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.header.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.header.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?minimize!./../../../../node_modules/postcss-loader/index.js!./style.footer.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?minimize!./../../../../node_modules/postcss-loader/index.js!./style.footer.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -500,7 +488,7 @@ var app =
 
 
 	// module
-	exports.push([module.id, ".header{min-height:100px;background-color:#ccc;z-index:5}", ""]);
+	exports.push([module.id, ".footer{color:#fff;min-height:150px;background-color:#333;z-index:3}", ""]);
 
 	// exports
 
@@ -509,60 +497,38 @@ var app =
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
+	"use strict";
+	// ----------------------------------------------------
 
-	// load the styles
-	var content = __webpack_require__(10);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.main.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.main.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	__webpack_require__(10);
+
+	// ----------------------------------------------------
+	exports.default = {
+	    name: "header"
+		};
 
 /***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".main{background-color:#fafafa;min-height:100%;margin-top:-150px;padding-top:160px;margin-bottom:-150px;padding-bottom:160px;z-index:2}", ""]);
-
-	// exports
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(12);
+	var content = __webpack_require__(11);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.page.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?minimize!./../../../node_modules/postcss-loader/index.js!./style.page.css");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?minimize!./../../../../node_modules/postcss-loader/index.js!./style.header.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?minimize!./../../../../node_modules/postcss-loader/index.js!./style.header.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -572,7 +538,7 @@ var app =
 	}
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -580,13 +546,106 @@ var app =
 
 
 	// module
-	exports.push([module.id, ".page{height:100%;border:3px solid #c00}.page__container{position:relative;z-index:1}*{-webkit-box-sizing:border-box;box-sizing:border-box;font-family:sans-serif}a,body,h1,h2,h3,h4,h5,h6,html,li,p,ul{margin:0;padding:0;text-decoration:none;list-style:none;color:inherit}body,html{height:100%}.center{color:#444;text-align:center;padding:10px}.center h2{font-weight:100;margin-bottom:10px}.center button{margin-top:20px}", ""]);
+	exports.push([module.id, ".header{min-height:100px;background-color:#83d0b5;background-image:url(" + __webpack_require__(12) + ");background-position:50% 50%;background-repeat:repeat;z-index:5}", ""]);
 
 	// exports
 
 
 /***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "page/header/pattern_1.png";
+
+/***/ },
 /* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	// ----------------------------------------------------
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	__webpack_require__(14);
+
+	// ----------------------------------------------------
+	exports.default = {
+	    name: "main"
+		};
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(15);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?minimize!./../../../../node_modules/postcss-loader/index.js!./style.main.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?minimize!./../../../../node_modules/postcss-loader/index.js!./style.main.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+	exports.i(__webpack_require__(16), "");
+	exports.i(__webpack_require__(17), "");
+
+	// module
+	exports.push([module.id, ".main{background-position:0 0;min-height:100%;margin-top:-150px;padding-top:160px;margin-bottom:-150px;padding-bottom:160px;z-index:2}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".main:after{color:#fff;content:'product';background-color:#3b0e37;font-size:18px;padding:20px;display:block;position:absolute;top:50%;right:0;z-index:100}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".main:before{color:#fff;content:'home';background-color:#054100;font-size:18px;padding:20px;display:block;position:absolute;top:50%;left:0;z-index:100}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -596,15 +655,15 @@ var app =
 	    value: true
 	});
 
-	var _classCallCheck2 = __webpack_require__(14);
+	var _classCallCheck2 = __webpack_require__(19);
 
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-	var _createClass2 = __webpack_require__(15);
+	var _createClass2 = __webpack_require__(20);
 
 	var _createClass3 = _interopRequireDefault(_createClass2);
 
-	__webpack_require__(34);
+	__webpack_require__(39);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -648,7 +707,7 @@ var app =
 		exports.default = Menu;
 
 /***/ },
-/* 14 */
+/* 19 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -662,14 +721,14 @@ var app =
 	};
 
 /***/ },
-/* 15 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	exports.__esModule = true;
 
-	var _defineProperty = __webpack_require__(16);
+	var _defineProperty = __webpack_require__(21);
 
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -694,37 +753,37 @@ var app =
 	}();
 
 /***/ },
-/* 16 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(17), __esModule: true };
+	module.exports = { "default": __webpack_require__(22), __esModule: true };
 
 /***/ },
-/* 17 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(18);
-	var $Object = __webpack_require__(21).Object;
+	__webpack_require__(23);
+	var $Object = __webpack_require__(26).Object;
 	module.exports = function defineProperty(it, key, desc){
 	  return $Object.defineProperty(it, key, desc);
 	};
 
 /***/ },
-/* 18 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $export = __webpack_require__(19);
+	var $export = __webpack_require__(24);
 	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-	$export($export.S + $export.F * !__webpack_require__(29), 'Object', {defineProperty: __webpack_require__(25).f});
+	$export($export.S + $export.F * !__webpack_require__(34), 'Object', {defineProperty: __webpack_require__(30).f});
 
 /***/ },
-/* 19 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global    = __webpack_require__(20)
-	  , core      = __webpack_require__(21)
-	  , ctx       = __webpack_require__(22)
-	  , hide      = __webpack_require__(24)
+	var global    = __webpack_require__(25)
+	  , core      = __webpack_require__(26)
+	  , ctx       = __webpack_require__(27)
+	  , hide      = __webpack_require__(29)
 	  , PROTOTYPE = 'prototype';
 
 	var $export = function(type, name, source){
@@ -784,7 +843,7 @@ var app =
 	module.exports = $export;
 
 /***/ },
-/* 20 */
+/* 25 */
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -793,18 +852,18 @@ var app =
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 21 */
+/* 26 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '2.4.0'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 22 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(23);
+	var aFunction = __webpack_require__(28);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -825,7 +884,7 @@ var app =
 	};
 
 /***/ },
-/* 23 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -834,12 +893,12 @@ var app =
 	};
 
 /***/ },
-/* 24 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dP         = __webpack_require__(25)
-	  , createDesc = __webpack_require__(33);
-	module.exports = __webpack_require__(29) ? function(object, key, value){
+	var dP         = __webpack_require__(30)
+	  , createDesc = __webpack_require__(38);
+	module.exports = __webpack_require__(34) ? function(object, key, value){
 	  return dP.f(object, key, createDesc(1, value));
 	} : function(object, key, value){
 	  object[key] = value;
@@ -847,15 +906,15 @@ var app =
 	};
 
 /***/ },
-/* 25 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var anObject       = __webpack_require__(26)
-	  , IE8_DOM_DEFINE = __webpack_require__(28)
-	  , toPrimitive    = __webpack_require__(32)
+	var anObject       = __webpack_require__(31)
+	  , IE8_DOM_DEFINE = __webpack_require__(33)
+	  , toPrimitive    = __webpack_require__(37)
 	  , dP             = Object.defineProperty;
 
-	exports.f = __webpack_require__(29) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+	exports.f = __webpack_require__(34) ? Object.defineProperty : function defineProperty(O, P, Attributes){
 	  anObject(O);
 	  P = toPrimitive(P, true);
 	  anObject(Attributes);
@@ -868,17 +927,17 @@ var app =
 	};
 
 /***/ },
-/* 26 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(27);
+	var isObject = __webpack_require__(32);
 	module.exports = function(it){
 	  if(!isObject(it))throw TypeError(it + ' is not an object!');
 	  return it;
 	};
 
 /***/ },
-/* 27 */
+/* 32 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -886,24 +945,24 @@ var app =
 	};
 
 /***/ },
-/* 28 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = !__webpack_require__(29) && !__webpack_require__(30)(function(){
-	  return Object.defineProperty(__webpack_require__(31)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	module.exports = !__webpack_require__(34) && !__webpack_require__(35)(function(){
+	  return Object.defineProperty(__webpack_require__(36)('div'), 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 29 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(30)(function(){
+	module.exports = !__webpack_require__(35)(function(){
 	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 30 */
+/* 35 */
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -915,11 +974,11 @@ var app =
 	};
 
 /***/ },
-/* 31 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(27)
-	  , document = __webpack_require__(20).document
+	var isObject = __webpack_require__(32)
+	  , document = __webpack_require__(25).document
 	  // in old IE typeof document.createElement is 'object'
 	  , is = isObject(document) && isObject(document.createElement);
 	module.exports = function(it){
@@ -927,11 +986,11 @@ var app =
 	};
 
 /***/ },
-/* 32 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(27);
+	var isObject = __webpack_require__(32);
 	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
 	// and the second argument - flag - preferred type is a string
 	module.exports = function(it, S){
@@ -944,7 +1003,7 @@ var app =
 	};
 
 /***/ },
-/* 33 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -957,16 +1016,16 @@ var app =
 	};
 
 /***/ },
-/* 34 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(35);
+	var content = __webpack_require__(40);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -983,7 +1042,7 @@ var app =
 	}
 
 /***/ },
-/* 35 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();

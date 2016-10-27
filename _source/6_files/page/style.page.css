@@ -1,0 +1,36 @@
+
+
+/* ============================ miscellaneous ============================ */
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,body,a,p,ul,li,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* ============================ page ============================ */
+.page {
+    height: 100%;
+    border: solid 3px #c00;
+    background-color: #de3f63;
+    background-image: url("./pattern_2.png");
+    background-position: 50% 50%;
+    background-repeat: repeat;
+}
+
+.page__container {
+    position: relative;
+    z-index: 1;
+}
