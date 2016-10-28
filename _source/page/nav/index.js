@@ -3,10 +3,9 @@
 import "./style.nav.scss";
 
 
-
 // -------------------------------------------------
 export default class Menu {
-    constructor(list, id, name) {
+    constructor(id, name, list) {
         this.list = list;
         this.container = document.getElementById(id);
         this.name = name;
@@ -28,12 +27,13 @@ export default class Menu {
         this.container.innerHTML = result;
     };
     
-    createListeners(cb) {
+    createListeners(callback) {
         let btns = document.getElementsByClassName("lnk");
         let btnsLen = btns.length;
         for (let i = 0; i < btnsLen; i++) {
             btns[i].addEventListener("click", (e) => {
-                cb(e.target.innerHTML);
+                let text = e.target.innerHTML.replace(/\s+/g, "").toLowerCase();
+                callback(text);
             });
         }
     };
