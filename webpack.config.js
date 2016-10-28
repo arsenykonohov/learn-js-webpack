@@ -51,7 +51,7 @@ let babelLoader = {
 };
 
 let cssStyleLoader = {
-    test: /(\.css$)|(\.scss$)|(\.sass$)/,
+    test: /\.(css|scss|sass)$/,
     include: path.resolve(__dirname + "/_source/6_files"),
     loader: "style!css?minimize!postcss!sass"
 };
@@ -73,8 +73,13 @@ let urlLoader = {
     loader: "url?name=assets/[path][name].[ext]&limit=100000"
 };
 
+let jadePugLoader = {
+    test: /\.(jade|pug)$/,
+    loader: "pug?pretty"
+};
+
 //let extractStyleLoader = {
-//    test: /(\.css$)|(\.scss$)|(\.sass$)/,
+//    test: /\.(css|scss|sass)$/,
 //    include: path.resolve(__dirname + "/_source/6_files"),
 //    loader: extractStyles.extract("style", ["css?minimize", "postcss", "sass"])
 //}
@@ -85,8 +90,9 @@ myBuild.module.loaders = [
     babelLoader,
     cssStyleLoader,
     fileLoader,
-    vendorFileLoader
-//    urlLoader
+    vendorFileLoader,
+//    urlLoader,
+    jadePugLoader
 ];
 
 
