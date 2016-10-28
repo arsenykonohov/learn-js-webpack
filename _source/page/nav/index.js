@@ -28,12 +28,12 @@ export default class Menu {
         this.container.innerHTML = result;
     };
     
-    createListeners() {
+    createListeners(cb) {
         let btns = document.getElementsByClassName("lnk");
         let btnsLen = btns.length;
         for (let i = 0; i < btnsLen; i++) {
             btns[i].addEventListener("click", (e) => {
-                console.log(e.target);
+                cb(e.target.innerHTML);
             });
         }
     };

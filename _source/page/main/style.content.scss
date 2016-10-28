@@ -1,0 +1,28 @@
+.content {}
+
+.content__container {
+//    border: solid 1px #aaa; // check it -------------------------
+}
+
+.product .content__container {
+    overflow: hidden;
+}
+
+.content__head {
+    color: #fff;
+    font-weight: 100;
+    text-transform: uppercase;
+    background-color: #555;
+    padding: 5px 8px;
+}
+
+.content__body {
+    margin-top: 10px;
+}
+
+.product .content__body {
+    margin: 0 -10px;
+    font-size: 0;
+}
+
+.content__foot {}

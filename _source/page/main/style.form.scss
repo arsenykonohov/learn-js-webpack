@@ -1,0 +1,45 @@
+.form {
+    display: block;
+}
+
+.form__container {
+    display: block;
+}
+
+.form__head {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #333;
+    display: block;
+    padding: 5px 8px;
+    background-color: #eee;
+}
+
+.form__body {
+    margin-top: 10px;
+}
+
+.form__foot {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input {
+    width: 100%;
+    padding: 3px 5px;
+    line-height: 24px;
+}
+
+.btn {
+    font-weight: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    &_success {
+        color: #fff;
+        background-color: #006d00;
+    }
+}

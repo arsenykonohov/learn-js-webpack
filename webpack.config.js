@@ -9,6 +9,7 @@ process.env.BROWSERSLIST = "last 10 versions";
 let webpack           = require("webpack");
 let path              = require("path");
 let myBuild           = {};
+let browserSyncPlugin = require("browser-sync-webpack-plugin");
 let extractTextPlugin = require("extract-text-webpack-plugin");
 let autoprefixer      = require("autoprefixer");
 
@@ -24,12 +25,22 @@ let compressConfig = {
     unsafe:       false
 };
 
-let envDefinition     = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
-let uglifyPlugin      = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
-let errorsPlugin      = new webpack.NoErrorsPlugin();
-let extractStyles     = new extractTextPlugin("../../style/style.css");
+const serverConfig = {
+    host: "localhost",
+    port: 9000,
+    server: {
+        baseDir: ["./public"]
+    }
+};
 
-myBuild.plugins = [envDefinition, errorsPlugin, extractStyles];
+let envDefinition       = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
+let uglifyPlugin        = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
+let errorsPlugin        = new webpack.NoErrorsPlugin();
+let extractStyles       = new extractTextPlugin("../style/style.css");
+let extractTemplate     = new extractTextPlugin("../template/[name].html");
+let browserSyncDvServer = new browserSyncPlugin(serverConfig);
+
+myBuild.plugins = [envDefinition, errorsPlugin, extractStyles, browserSyncDvServer];
 
 (NODE_ENV === "production") ? myBuild.plugins.push(uglifyPlugin) : console.log("DEVELOP MODE ===================================== ");
 
@@ -50,49 +61,54 @@ let babelLoader = {
     }
 };
 
-let cssStyleLoader = {
-    test: /\.(css|scss|sass)$/,
-    include: path.resolve(__dirname + "/_source/6_files"),
-    loader: "style!css?minimize!postcss!sass"
-};
-
 let fileLoader = {
     test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
     exclude: /(node_modules)/,
-    loader: "file?name=assets/project/[path][name].[ext]"
+    loader: "file?name=../assets/project/[path][name].[ext]"
 };
 
 let vendorFileLoader = {
     test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
     include: path.resolve(__dirname + "/node_modules"),
-    loader: "file?name=assets/vendor/[name].[ext]&regExp=_/_/node_modules/(.*)"
+    loader: "file?name=../assets/vendor/[name].[ext]&regExp=_/_/node_modules/(.*)"
 };
 
 let urlLoader = {
     test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-    loader: "url?name=assets/[path][name].[ext]&limit=100000"
+    loader: "url?name=../assets/[path][name].[ext]&limit=100000"
 };
 
-let jadePugLoader = {
+let templateLoader = {
     test: /\.(jade|pug)$/,
     loader: "pug?pretty"
 };
 
-//let extractStyleLoader = {
-//    test: /\.(css|scss|sass)$/,
-//    include: path.resolve(__dirname + "/_source/6_files"),
-//    loader: extractStyles.extract("style", ["css?minimize", "postcss", "sass"])
-//}
+//let extractTemplateLoader = {
+//    test: /\.(jade|pug)$/,
+//    loader: extractTemplate.extract(["pug?pretty"], {allChunks: true})
+//};
+
+let styleLoader = {
+    test: /\.(css|scss|sass)$/,
+    include: path.resolve(__dirname + "/_source"),
+    loader: "style!css?minimize!postcss!sass"
+};
+
+let extractStyleLoader = {
+    test: /\.(css|scss|sass)$/,
+    include: path.resolve(__dirname + "/_source"),
+    loader: extractStyles.extract("style", ["css?minimize", "postcss", "sass"])
+}
 
 myBuild.module = {};
 
 myBuild.module.loaders = [
     babelLoader,
-    cssStyleLoader,
+    extractStyleLoader,
     fileLoader,
     vendorFileLoader,
 //    urlLoader,
-    jadePugLoader
+    templateLoader
 ];
 
 
@@ -112,15 +128,15 @@ myBuild.postcss = function () {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT / ENTRY & OUTPUT /
-myBuild.context = path.resolve(__dirname + "/_source/6_files");
+myBuild.context = path.resolve(__dirname + "/_source");
 
 myBuild.entry = {
     app: "./page"
 };
 
 myBuild.output = {
-    path: path.resolve(__dirname + "/public/resource/scripts/6_files/"),
-    publicPath: "/resource/scripts/6_files/",
+    path: path.resolve(__dirname + "/public/resource/scripts/"),
+    publicPath: "/resource/scripts/",
     filename: "[name].js",
     library: "[name]",
 };
@@ -153,6 +169,10 @@ myBuild.devtool = NODE_ENV === "developer" ? "cheap-module-source-map" : null;
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE / EXPORT MODULE /
 module.exports = myBuild;
+
+
+
+
 
 
 

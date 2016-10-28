@@ -8,16 +8,16 @@ import header from "./header";
 import main   from "./main";
 import Menu   from "./nav";
 
+// ----------------------------------------------------
+let navInputData = ["home", "product", "login"];
+let navGenrator = new Menu(navInputData, "js_nav", "nav");
+navGenrator.createMenu();
 
 // ----------------------------------------------------
-let navInputData = ["home", "about", "login"];
-let navGenrator = new Menu(navInputData, "js_nav", "nav");
-
-navGenrator.createMenu();
-navGenrator.createListeners();
-
-
-
+function generateMainPage(route) {
+    main.container.innerHTML = main.tmp[route](main.options[route]);
+};
+navGenrator.createListeners(generateMainPage);
 
 
 

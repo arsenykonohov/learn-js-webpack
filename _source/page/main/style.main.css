@@ -1,5 +1,8 @@
 
 /* ============================ main ============================ */
+/*@import url("./main-product/style.main-product.css");*/
+/*@import url("./main-home/style.main-home.css");*/
+
 .main {
     background-position: 0 0;
     min-height: 100%;
@@ -16,7 +19,6 @@
     min-height: 400px;
     z-index: 10;
     box-shadow: 0px 0px 12px rgba(0,0,0,.33);
+    padding: 25px;
 }
 
-@import url("./main-product/style.main-product.css");
-@import url("./main-home/style.main-home.css");
