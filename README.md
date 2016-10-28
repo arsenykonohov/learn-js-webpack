@@ -84,7 +84,7 @@ babel config (like `.babelrc`) inside `package.json`
 + 6.3. Styles and assets | `header`, `footer`, url-loader - *complete*;
 + 6.4. Styles and assets | `main`, jade-loader            - *complete*;
 + 6.5. Styles and assets | post-css, sass-loader (scss)   - *complete*;
-+ 6.6. Styles and assets | ExtractTextPlugin              - *in progress*;
++ 6.6. Styles and assets | ExtractTextPlugin              - *complete*;
 
 ***
 + 7.1. Browser cache | config - *get started*;
