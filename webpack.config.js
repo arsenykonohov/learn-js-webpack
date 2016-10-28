@@ -51,9 +51,9 @@ let babelLoader = {
 };
 
 let cssStyleLoader = {
-    test: /\.css$/,
+    test: /(\.css$)|(\.scss$)|(\.sass$)/,
     include: path.resolve(__dirname + "/_source/6_files"),
-    loader: "style!css?minimize!postcss"
+    loader: "style!css?minimize!postcss!sass"
 };
 
 let fileLoader = {
@@ -74,9 +74,9 @@ let urlLoader = {
 };
 
 //let extractStyleLoader = {
-//    test: /\.css$/,
+//    test: /(\.css$)|(\.scss$)|(\.sass$)/,
 //    include: path.resolve(__dirname + "/_source/6_files"),
-//    loader: extractStyles.extract("style", ["css?minimize", "postcss"])
+//    loader: extractStyles.extract("style", ["css?minimize", "postcss", "sass"])
 //}
 
 myBuild.module = {};

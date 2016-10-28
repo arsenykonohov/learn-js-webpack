@@ -1,8 +1,11 @@
 
+$navColor: #304e79;
+
+
 .nav {
     display: block;
     min-height: 50px;
-    background-color: #304e79;
+    background-color: $navColor;
     z-index: 4;
 }
 
@@ -26,7 +29,7 @@
 }
 
 .nav__item a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: darken($navColor, 10);
     transition: all .5s;
     box-shadow: inset 0px 2px 6px rgba(0, 0, 0, 0.4);
 }

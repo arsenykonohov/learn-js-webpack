@@ -20,11 +20,13 @@ body {
 }
 
 /* ============================ page ============================ */
+$bgImage: "./pattern_2.png";
+
 .page {
     height: 100%;
     border: solid 3px #c00;
     background-color: #de3f63;
-    background-image: url("./pattern_2.png");
+    background-image: url($bgImage);
     background-position: 50% 50%;
     background-repeat: repeat;
 }

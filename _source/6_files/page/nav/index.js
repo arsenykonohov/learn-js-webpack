@@ -1,6 +1,6 @@
 "use strict";
 // -------------------------------------------------
-import "./style.nav.css";
+import "./style.nav.scss";
 
 
 
