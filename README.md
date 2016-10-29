@@ -16,9 +16,9 @@ $ NODE_ENV=public webpack
 **Build info:**
 ```
 $ webpack --display-modules -v
-$ webpack --json --profile > stats.json
 $ webpack --profile --display-modules
 $ webpack --profile --display-modules --display-reasons
+$ webpack --json --profile > stats.json
 ```
 
 [upload stats.json here](https://webpack.github.io/analyse/)
@@ -33,7 +33,7 @@ babel config (like `.babelrc`) inside `package.json`
 
 [troubleshooting for watch and windows paths](https://webpack.github.io/docs/troubleshooting.html#windows-paths)
 
-[following for resource above](https://webpack.github.io/docs/configuration.html#resolve-root)
+[addition for resource above](https://webpack.github.io/docs/configuration.html#resolve-root)
 
 
 
@@ -87,8 +87,14 @@ babel config (like `.babelrc`) inside `package.json`
 + 6.6. Styles and assets | ExtractTextPlugin              - *complete*;
 
 ***
-+ 7.1. Browser cache | config - *get started*;
++ 7.1. Browser cache | config           - *i just look it*;
++ 7.1. Browser cache | caching settings - *i just look it*;
 
+***
++ 8.1. LiveReload & HMR | WDS (Webpack Develop Server) - *...*;
++ 8.2. LiveReload & HMR | Advanced settings WDS        - *...*;
++ 8.3. LiveReload & HMR | LiveReload                   - *...*;
++ 8.4. LiveReload & HMR | HMR (Hot Module Replacement) - *...*;
 
 
 

@@ -36,7 +36,7 @@ const serverConfig = {
 let envDefinition       = new webpack.DefinePlugin({NODE_ENV: JSON.stringify(NODE_ENV)});
 let uglifyPlugin        = new webpack.optimize.UglifyJsPlugin({compress: compressConfig});
 let errorsPlugin        = new webpack.NoErrorsPlugin();
-let extractStyles       = new extractTextPlugin("../style/style.css");
+let extractStyles       = new extractTextPlugin("../style/style.css", {allChunks: true});
 let extractTemplate     = new extractTextPlugin("../template/[name].html");
 let browserSyncDvServer = new browserSyncPlugin(serverConfig);
 
@@ -85,7 +85,7 @@ let templateLoader = {
 
 //let extractTemplateLoader = {
 //    test: /\.(jade|pug)$/,
-//    loader: extractTemplate.extract(["pug?pretty"], {allChunks: true})
+//    loader: extractTemplate.extract(["pug?pretty"])
 //};
 
 let styleLoader = {
