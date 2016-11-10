@@ -29,8 +29,8 @@ let tmpOptions = {
 };
 
 let main = new Main("js_main", "main", tmpOptions);
-let mainGenerator = main.generateContent();
-mainGenerator("home");
+main.generateContent("home"); // default page;
+let mainGenerator = main.generateContent.bind(main); // bind context
 
 // ----------------------------------------------------
 let navData = ["Home", "Product", "Login"];

@@ -7,14 +7,6 @@ import productTmp from "./main-product/tmp.main-product.pug"
 import loginTmp   from "./main-login/tmp.main-login.pug"
 
 
-
-
-
-
-
-
-
-
 // ----------------------------------------------------
 export default class Main {
     constructor(id, name, options) {
@@ -28,13 +20,21 @@ export default class Main {
         };
     };
     
-    generateContent() {
-        let main = {
-            name: this.name,
-            container: this.container,
-            options: this.options,
-            tmp: this.tmp
-        }
-        return ((route) => main.container.innerHTML = main.tmp[route](main.options[route]));
+    generateContent(route) {
+        this.container.innerHTML = this.tmp[route](this.options[route]);
     };
 }
+
+
+
+
+// wrong way to save context; (use "bind");
+//    generateContent() {
+//        let main = {
+//            name: this.name,
+//            container: this.container,
+//            options: this.options,
+//            tmp: this.tmp
+//        }
+//        return ((route) => main.container.innerHTML = main.tmp[route](main.options[route]));
+//    };

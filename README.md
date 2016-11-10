@@ -88,13 +88,13 @@ babel config (like `.babelrc`) inside `package.json`
 
 ***
 + 7.1. Browser cache | config           - *i just look it*;
-+ 7.1. Browser cache | caching settings - *i just look it*;
++ 7.2. Browser cache | caching settings - *i just look it*;
 
 ***
-+ 8.1. LiveReload & HMR | WDS (Webpack Develop Server) - *...*;
-+ 8.2. LiveReload & HMR | Advanced settings WDS        - *...*;
-+ 8.3. LiveReload & HMR | LiveReload                   - *...*;
-+ 8.4. LiveReload & HMR | HMR (Hot Module Replacement) - *...*;
++ 8.1. LiveReload & HMR | WDS (Webpack Develop Server) - *i just look it*;
++ 8.2. LiveReload & HMR | WDS advanced settings        - *i just look it*;
++ 8.3. LiveReload & HMR | LiveReload                   - *i just look it*;
++ 8.4. LiveReload & HMR | HMR (Hot Module Replacement) - *i just look it*;
 
 
 
